@@ -10,6 +10,8 @@
     background-position: -200% 50%;
     transition: all .2s ease-in-out;
     height: 2.4rem;
+    display: flex;
+    justify-content: center;
 }
 
 .primary_btn:hover{
