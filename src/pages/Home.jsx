@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/header/Header';
 import HeadBand from '../components/generals/HeadBand';
 import FormSection from '../components/form_section/FormSection';
+import Services from '../components/services/Services';
 
 const Home = () => {
     return (
@@ -9,6 +10,7 @@ const Home = () => {
             <Header />
             <HeadBand />
             <FormSection />
+            <Services />
         </div>
     );
 };
