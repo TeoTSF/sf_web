@@ -1,0 +1,50 @@
+.primary_btn{
+    background: none;
+    border: 2px solid var(--primaryC);
+    padding: .4rem .8rem;
+    color: var(--primaryC);
+    border-radius: 20px;
+    background-image: url("/destello.png");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: -200% 50%;
+    transition: all .2s ease-in-out;
+    height: 2.4rem;
+}
+
+.primary_btn:hover{
+    background-position: 300% 50%;
+    box-shadow: 0px 0px 5px var(--primaryC);
+    transform: scale(1.05);
+}
+
+.home_container{
+    padding-top: 4rem;
+}
+
+.headBand_container{
+    background-image: url("/bg_tre2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100% 50%;
+    height: 9.45rem;
+}
+
+.headBand_info{
+    padding: 0 2rem;
+    color: var(--primaryC);
+}
+
+.headBand_info div{
+    width: 98%;
+    text-align: center;
+    max-width: 370px;
+}
+
+
+
+@media screen and (min-width: 768px) {
+    .home_container{
+        padding-top: 6rem;
+    }
+}
