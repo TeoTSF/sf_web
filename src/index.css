@@ -63,6 +63,14 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 22px;
 }
 
+.xx-big {
+  font-size: 30px;
+}
+
+.center{
+  text-align: center;
+}
+
 /* universal style container */
 .grid {
   display: grid;
@@ -205,5 +213,9 @@ textarea {
   
   .x-big {
     font-size: 25px;
+  }
+
+  .xx-big {
+    font-size: 45px;
   }
 }
