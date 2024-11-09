@@ -11,7 +11,7 @@ const MetricCards = ({ numberTitle, description, numberDetail }) => {
           onEnter={() => setCountOn(true)}
           onExit={() => setCountOn(false)}
         >
-          {countOn && <CountUp start={numberTitle - numberTitle} end={numberTitle} duration={1} />}
+          {countOn && <CountUp start={numberTitle - (numberTitle * 0.9)} end={numberTitle} duration={1} />}
           {numberDetail}
         </ScrollTriggerReplacement>
       </h5>

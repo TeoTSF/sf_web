@@ -1,43 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import Menu from "./Menu";
 import "./navbar.css";
 import logoH from "/logo_h.png";
-import youtube from "/button_youtube.png";
-import instagram from "/button_instagram.png";
-import user from "/button_user.png";
 import PrimaryBtn from "../generals/PrimaryBtn";
+import MainContext from "../../context/MainContext";
 
 const NavBar = () => {
-  const icons = [
-    {
-      icon: youtube,
-      path: "https://www.youtube.com/@AUTODIDACTAS_SD",
-    },
-    {
-      icon: instagram,
-      path: "https://www.instagram.com/@tradingSF",
-    },
-    {
-      icon: user,
-      path: "",
-    },
-  ];
+  const {icons} = useContext(MainContext)
+ 
   return (
     <div className="navbar_container full-vw flex row">
       <div className="navbar_logo_container full-h flex">
         <img src={logoH} alt="" />
       </div>
-      <div className="navbar_menu_container flex al-c">
+      <div className="navbar_menu_container al-c">
         <Menu />
         <PrimaryBtn>ESCUELA VIRTUAL</PrimaryBtn>
-        <div className="navbar_icon_container flex row jf-sb">
+      </div>
+        <div className="navbar_icon_container flex row jf-sb al-c">
           {icons.map((item, i) => (
-            <a key={i} href={item.path} target="_blank">
-              <img src={item.icon} alt="" />
+            <a key={i} href={item.path} target="_blank" className="flex jf-c al-c">
+              {item.icon}
             </a>
           ))}
         </div>
-      </div>
     </div>
   );
 };

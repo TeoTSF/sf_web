@@ -34,19 +34,6 @@ const Services = () => {
         }
       ];
       
-      const ServicesList = () => {
-        return (
-          <div className="services_container">
-            {services.map((service, index) => (
-              <div key={index} className={`services_item${index + 1} flex column al-c`}>
-                <img src={service.imgSrc} alt={service.altText} />
-                <p className="x-big bold">{service.title}</p>
-                <span className="regular bold">{service.description}</span>
-              </div>
-            ))}
-          </div>
-        );
-      };
       
   return (
     <div className="services_container">

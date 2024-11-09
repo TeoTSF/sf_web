@@ -5,7 +5,7 @@ import FormSection from '../components/form_section/FormSection';
 import Services from '../components/services/Services';
 import ProposalSection from '../components/proposal/ProposalSection';
 import Metrics from '../components/metrics/Metrics';
-import Footer from '../components/footer/Footer';
+import FooterSection from '../components/footer/FooterSection';
 
 const Home = () => {
     return (
@@ -16,7 +16,7 @@ const Home = () => {
             <Services />
             <ProposalSection />
             <Metrics />
-            <Footer />
+            <FooterSection />
         </div>
     );
 };
