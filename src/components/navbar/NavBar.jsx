@@ -1,12 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Menu from "./Menu";
 import "./navbar.css";
 import logoH from "/logo_h.png";
+import logoV from "/logo.png";
 import PrimaryBtn from "../generals/PrimaryBtn";
 import MainContext from "../../context/MainContext";
+import MenuItem from "../generals/MenuItem";
 
 const NavBar = () => {
-  const { icons } = useContext(MainContext);
+  const { icons, menuOptions } = useContext(MainContext);
+
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className="navbar_container full-vw flex row">
@@ -29,8 +33,22 @@ const NavBar = () => {
           </a>
         ))}
       </div>
-      <div className="menu_access">
-        <i className='bx bx-menu' />
+      <div className="menu_access" onClick={() => setMenuOpen(!menuOpen)}>
+        <i className="bx bx-menu" />
+      </div>
+      <div className={`flex column mobile_menu al-c ${menuOpen ? "open" : ""}`}>
+        <img
+          className="logo_header autoM"
+          src={logoV}
+          alt="logo trading sin fronteras"
+        />
+        <div className="flex column center">
+          {menuOptions.map((item, i) => (
+            <MenuItem item={item} key={i} />
+          ))}
+        </div>
+        <br /><br />
+        <PrimaryBtn>Escuela Virtual</PrimaryBtn>
       </div>
     </div>
   );
