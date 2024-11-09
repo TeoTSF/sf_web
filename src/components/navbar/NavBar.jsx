@@ -6,8 +6,8 @@ import PrimaryBtn from "../generals/PrimaryBtn";
 import MainContext from "../../context/MainContext";
 
 const NavBar = () => {
-  const {icons} = useContext(MainContext)
- 
+  const { icons } = useContext(MainContext);
+
   return (
     <div className="navbar_container full-vw flex row">
       <div className="navbar_logo_container full-h flex">
@@ -17,13 +17,21 @@ const NavBar = () => {
         <Menu />
         <PrimaryBtn>ESCUELA VIRTUAL</PrimaryBtn>
       </div>
-        <div className="navbar_icon_container flex row jf-sb al-c">
-          {icons.map((item, i) => (
-            <a key={i} href={item.path} target="_blank" className="flex jf-c al-c">
-              {item.icon}
-            </a>
-          ))}
-        </div>
+      <div className="navbar_icon_container flex row jf-sb al-c">
+        {icons.map((item, i) => (
+          <a
+            key={i}
+            href={item.path}
+            target="_blank"
+            className="flex jf-c al-c"
+          >
+            {item.icon}
+          </a>
+        ))}
+      </div>
+      <div className="menu_access">
+        <i className='bx bx-menu' />
+      </div>
     </div>
   );
 };

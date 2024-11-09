@@ -29,17 +29,27 @@
     color: var(--secondaryCC);
   }
 
+  .navbar_icon_container{
+    width: 40%;
+  }
+
   .navbar_icon_container a{
     color: var(--secondaryCC);
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
+    width: 30px;
+    height: 30px;
     border: 1px solid var(--secondaryCC);
     padding: .1rem;
     text-decoration: none;
-    margin-right: 1rem;
   }
   
+  .menu_access{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondaryCC);
+    font-size: 40px;
+  }
 
 
   @media screen and (min-width: 768px) {
@@ -63,6 +73,8 @@
         border-bottom: 1px solid var(--secondaryCC);
     }
 
-   
+    .menu_access{
+      display: none;
+    }
 
   }
