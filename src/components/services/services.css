@@ -1,17 +1,15 @@
 .services_container{
-    background-image: url("/bg_tre4.jpg");
+    background-image: url("/bg_tre4M.png");
     min-height: 95vh;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: -10 0;
+    background-position: 100% 100%;
     padding: 1rem 0;
 }
 
-
-
 .services_section1{
     width: 80%;
-    max-width: 500px;
+    max-width: 450px;
 }
 
 .services_section2{
@@ -69,12 +67,11 @@
 }
 
 @media screen and (min-width: 768px) {
+    .services_container{
+        background-image: url("/bg_tre4.jpg");
+    }
     .services_section2 h3{
         font-size: 35px;
         margin-bottom: 1rem;
-    }
-
-    .services_section1{
-        margin-top: 10rem;
     }
 }
