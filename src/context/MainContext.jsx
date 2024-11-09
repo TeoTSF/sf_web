@@ -10,6 +10,13 @@ const MainContextProvider = ({ children }) => {
     });
   };
 
+  const handleCustomScroll = (scroll) => {
+    window.scrollTo({
+      top: scroll,
+      behavior: "smooth",
+    });
+  };
+
   const menuOptions = [
     { path: "/", name: "HOME" },
     { path: "/about_us", name: "NOSOTROS" },
@@ -38,7 +45,8 @@ const MainContextProvider = ({ children }) => {
   const functions = {
     handleScrollToTop,
     menuOptions,
-    icons
+    icons,
+    handleCustomScroll
   };
 
   return (

@@ -48,7 +48,7 @@ const NavBar = () => {
           ))}
         </div>
         <br /><br />
-        <PrimaryBtn>Escuela Virtual</PrimaryBtn>
+        <PrimaryBtn>ESCUELA VIRTUAL</PrimaryBtn>
       </div>
     </div>
   );

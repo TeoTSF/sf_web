@@ -4,7 +4,7 @@
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: cover;
-    height: 28.5rem;
+    min-height: 28.5rem;
     gap: 4rem;
     padding: 2rem 0;
 }
