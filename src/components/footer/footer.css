@@ -41,6 +41,12 @@
     color: var(--primaryC);
 }
 
+.footer_link .navbar_icon_container{
+    width: 100%;
+    max-width: 180px;
+    border: none;
+}
+
 .footer_info{
     gap: 2rem;
     padding: 2rem 0;

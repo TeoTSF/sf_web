@@ -18,19 +18,19 @@ const MainContextProvider = ({ children }) => {
 
   const icons = [
     {
-      icon: <i className='bx-sm bx bxl-youtube' />,
+      icon: <i className=' bx bxl-youtube' />,
       path: "https://youtube.com/@tradingsinfrontera?si=JV8rZWXs8R0BPnnJ",
     },
     {
-      icon: <i className='bx-sm bx bxl-instagram-alt' />,
+      icon: <i className=' bx bxl-instagram-alt' />,
       path: "https://www.instagram.com/trading_sinfrontera?igsh=MWhoeDM0MTRpeWZ4Yw==",
     },
     {
-      icon: <i className='bx bxl-tiktok bx-sm' />,
+      icon: <i className='bx bxl-tiktok ' />,
       path: "https://www.tiktok.com/@tradingsinfronter1?_t=8oar2pDr20r&_r=1",
     },
     {
-      icon: <i className='bx-sm bx bx-user' />,
+      icon: <i className=' bx bx-user' />,
       path: "",
     },
   ];

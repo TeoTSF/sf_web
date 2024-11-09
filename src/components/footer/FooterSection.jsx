@@ -26,7 +26,7 @@ const FooterSection = () => {
             </div>
           </div>
           <div className="footer_link">
-            <div className="navbar_icon_container flex row jf-sb">
+            <div className="navbar_icon_container flex row jf-sb autoM">
               {icons.slice(0, 3).map((item, i) => (
                 <a
                   key={i}

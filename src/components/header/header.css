@@ -1,9 +1,9 @@
 .header_container{
     height: calc(100vh - 4rem);
-    background-image: url("/bg_tre1.jpg");
+    background-image: url("/bg_tre1M.png");
     background-repeat: no-repeat;
     background-position: 0 0;
-    background-size: cover;
+    background-size: 90%;
 }
 
 
@@ -11,5 +11,6 @@
 @media screen and (min-width: 768px) {
     .header_container{
         height: calc(100vh - 6rem);
+        background-image: url("/bg_tre1.jpg");
     }
 }

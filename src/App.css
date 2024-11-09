@@ -35,6 +35,13 @@
 .headBand_info{
     padding: 0 2rem;
     color: var(--primaryC);
+    justify-content: center;
+}
+
+.headBand_info a{
+    text-decoration: none;
+    color: var(--primaryC);
+    margin: .2rem;
 }
 
 .headBand_info div{
@@ -48,5 +55,9 @@
 @media screen and (min-width: 768px) {
     .home_container{
         padding-top: 6rem;
+    }
+
+    .headBand_info{
+        justify-content: space-between;
     }
 }
