@@ -52,6 +52,31 @@
     font-size: 40px;
   }
 
+  .mobile_menu {
+    position: fixed;
+    top: 4rem;
+    right: 0;
+    width: 100vw;
+    height: calc(100vh - 4rem);
+    background-color: #020202e7; 
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    border-left: 3px solid var(--primaryHC);
+  }
+
+  .mobile_menu a{
+    font-size: 23px;
+    border-bottom: 1px solid var(--secondaryCC);
+    margin-top: .5rem;
+    padding: 1rem 0;
+    width: 200px;
+  }
+  
+  .mobile_menu.open {
+    transform: translateX(0); /* Mueve el menú para que aparezca */
+  }
+
 
   @media screen and (min-width: 768px) {
     .navbar_container{
