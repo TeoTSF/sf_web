@@ -36,7 +36,7 @@ const NavBar = () => {
       <div className="menu_access" onClick={() => setMenuOpen(!menuOpen)}>
         <i className="bx bx-menu" />
       </div>
-      <div className={`flex column mobile_menu al-c ${menuOpen ? "open" : ""}`}>
+      <div className={`flex column mobile_menu al-c ${menuOpen ? "open" : ""}`} onClick={() => setMenuOpen(!menuOpen)}>
         <img
           className="logo_header autoM"
           src={logoV}
