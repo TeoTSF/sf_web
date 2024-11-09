@@ -29,7 +29,7 @@
 
 body {
   width: 100%;
-  font-family: "Oswald", sans-serif;
+  font-family: "Barlow Condensed";
   font-optical-sizing: auto;
   font-weight: 200;
   font-size: 12px;
@@ -38,9 +38,17 @@ body {
   color: var(--primaryTC);
 }
 
+.s_family{
+  font-family: "Oswald", sans-serif;
+}
+
 /* universal style text  */
 .bold {
   font-weight: bold;
+}
+
+.regular_w{
+  font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
