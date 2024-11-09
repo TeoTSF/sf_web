@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./formSection.css";
 import InputGeneral from "../generals/InputGeneral";
+import YellowBtn from "../generals/YellowBtn";
 
 const FormSection = () => {
   const initialValues = {
@@ -72,6 +73,10 @@ const FormSection = () => {
           <br />
           <span className="section_text_span2">y obtén un descuento</span>
         </p>
+         <br /><br />
+         <div className="flex jf-c">
+        <YellowBtn link={"https://t.me/Tradingsinfrontera"}>Mas información!</YellowBtn>
+         </div>
       </div>
       <div className="form_container">
         <form
