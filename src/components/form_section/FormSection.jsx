@@ -98,7 +98,7 @@ const FormSection = () => {
                 onChange={handleChange}
                 required
               />
-              Acepto tratamiento de datos personales
+              {"  "}Acepto tratamiento de datos personales
             </label>
           </div>
           <button style={{ width: "48%" }} className="btn_form btn_app">
