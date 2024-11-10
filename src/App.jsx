@@ -5,12 +5,13 @@ import Home from "./pages/Home";
 import NavBar from "./components/navbar/NavBar";
 import BlogItemView from "./pages/blog/BlogItemView";
 import Blog from "./pages/blog/Blog";
+import LoginPage from "./pages/login/LoginPage";
 
 function App() {
-  
 
   return (
     <HashRouter>
+      <LoginPage />
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />

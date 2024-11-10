@@ -5,7 +5,7 @@ const post = [
         "autor": "Juan Pérez",
         "fecha": "2024-10-05",
         "categoria": "Trading",
-        "imagen": "https://example.com/images/trading.jpg",
+        "imagen": "/bg_tre5.jpg",
         "resumen": "Aprende los fundamentos del trading, incluyendo el análisis fundamental y técnico.",
         "contenido": "Esta es una breve introducción al trading...",
         "enlace": "https://example.com/blog/introduccion-al-trading"
@@ -16,7 +16,7 @@ const post = [
         "autor": "Ana García",
         "fecha": "2024-10-12",
         "categoria": "Análisis",
-        "imagen": "https://example.com/images/analisis-mercado.jpg",
+        "imagen": "/bg_tre5.jpg",
         "resumen": "Una guía completa para entender el análisis de mercado para nuevos inversores.",
         "contenido": "El análisis de mercado es esencial para tomar decisiones informadas en el trading...",
         "enlace": "https://example.com/blog/analisis-mercado-para-principiantes"
@@ -27,7 +27,7 @@ const post = [
         "autor": "Alicia Fernández",
         "fecha": "2024-11-01",
         "categoria": "Resultados",
-        "imagen": "https://example.com/images/resultados-mercado.jpg",
+        "imagen": "/bg_tre5.jpg",
         "resumen": "Un resumen del rendimiento del mercado y los resultados clave del año.",
         "contenido": "Al revisar el rendimiento del mercado en 2024...",
         "enlace": "https://example.com/blog/resumen-resultados-mercado-2024"
@@ -38,7 +38,7 @@ const post = [
         "autor": "Roberto López",
         "fecha": "2024-11-04",
         "categoria": "Clases",
-        "imagen": "https://example.com/images/estrategias.jpg",
+        "imagen": "/bg_tre5.jpg",
         "resumen": "Explora las mejores estrategias para traders principiantes en 2024.",
         "contenido": "Empezar como trader puede ser un desafío. Aquí algunas estrategias comprobadas...",
         "enlace": "https://example.com/blog/estrategias-principiantes-2024"
@@ -49,7 +49,7 @@ const post = [
         "autor": "Sara Martínez",
         "fecha": "2024-11-08",
         "categoria": "Gestión",
-        "imagen": "https://example.com/images/gestion-portafolio.jpg",
+        "imagen": "/bg_tre5.jpg",
         "resumen": "Aprende a gestionar tu portafolio de manera efectiva para maximizar retornos.",
         "contenido": "La gestión de portafolio es una habilidad clave para cualquier inversor...",
         "enlace": "https://example.com/blog/gestion-efectiva-portafolio"

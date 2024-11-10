@@ -43,6 +43,18 @@
     text-decoration: none;
     font-size: 22px;
   }
+
+  .bx-user{
+    color: var(--primaryTC);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--secondaryCC);
+    padding: .1rem;
+    text-decoration: none;
+    font-size: 22px;
+    margin-right: 1rem;
+  }
   
   .menu_access{
     display: flex;
@@ -94,7 +106,7 @@
 
     .navbar_icon_container{
         display: flex;
-        width: 230px;
+        width: 300px;
         color: var(--secondaryCC);
         border-bottom: 1px solid var(--secondaryCC);
     }
@@ -107,6 +119,17 @@
       width: 45px;
       height: 45px;
       font-size: 30px;
+    }
+    .bx-user{
+      color: var(--primaryTC);
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      border: 1px solid var(--secondaryCC);
+      padding: .1rem;
+      text-decoration: none;
+      font-size: 30px;
+      margin-right: 1rem;
     }
 
   }
