@@ -7,7 +7,6 @@ import BlogItemView from "./pages/blog/BlogItemView";
 import Blog from "./pages/blog/Blog";
 
 function App() {
-  
 
   return (
     <HashRouter>

@@ -8,7 +8,7 @@ import MainContext from "../../context/MainContext";
 import MenuItem from "../generals/MenuItem";
 
 const NavBar = () => {
-  const { icons, menuOptions } = useContext(MainContext);
+  const { icons, menuOptions, setOpenModalLogin, openModalLogin } = useContext(MainContext);
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -32,6 +32,7 @@ const NavBar = () => {
             {item.icon}
           </a>
         ))}
+        <i className=' bx bx-user flex jf-c al-c btn_app' onClick={() => setOpenModalLogin(!openModalLogin)} />
       </div>
       <div className="menu_access" onClick={() => setMenuOpen(!menuOpen)}>
         <i className="bx bx-menu" />
@@ -46,6 +47,7 @@ const NavBar = () => {
           {menuOptions.map((item, i) => (
             <MenuItem item={item} key={i} />
           ))}
+          
         </div>
         <br /><br />
         <PrimaryBtn>ESCUELA VIRTUAL</PrimaryBtn>
