@@ -5,18 +5,22 @@ import Home from "./pages/Home";
 import NavBar from "./components/navbar/NavBar";
 import BlogItemView from "./pages/blog/BlogItemView";
 import Blog from "./pages/blog/Blog";
-import LoginPage from "./pages/login/LoginPage";
+import ResetPassword from "./pages/resetPassword/ResetPassword";
+import NotFound from "./pages/404/NotFound";
+import ModalsContainer from "./components/ModalsContainer";
 
 function App() {
 
   return (
     <HashRouter>
-      <LoginPage />
+      <ModalsContainer />
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/post/:id" element={<BlogItemView />} />
+        <Route path="/reset_password/:tokenReset" element={<ResetPassword />} />
+        <Route path="*" element={<NotFound />} />
         <Route element={<ProtectedRoutes />}>
         </Route>
       </Routes>

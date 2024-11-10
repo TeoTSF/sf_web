@@ -57,6 +57,38 @@
     max-width: 370px;
 }
 
+.reset_password_container{
+    background-color: var(--secondaryCC);
+}
+
+.reset_form_box{
+    background-color: var(--primaryTC);
+    color: var(--secondaryTC);
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.redirect_modal_info{
+    border: 2px solid var(--primaryHC);
+    border-radius: 20px;
+    height: 70vh;
+    width: 90%;
+    max-width: var(--maxW);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    overflow: hidden;
+}
+
+.redirect_section{
+    width: 100%;
+    max-width: calc((var(--maxW)/2) - 2px);
+}
+
+.redirect2{
+    background: url("/public/bg_tre3M.png") var(--secondaryCC);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 
 @media screen and (min-width: 768px) {

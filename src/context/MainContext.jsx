@@ -1,10 +1,12 @@
 import { createContext, useEffect, useState } from "react";
+import axiosInstance from "../services/axios";
 
 const MainContext = createContext();
 
 const MainContextProvider = ({ children }) => {
   const [openModalLogin, setOpenModalLogin] = useState(false);
   const [error, setError] = useState("")
+  const [openRedirectModal, setOpenRedirectModal] = useState(false)
 
   const path = {
     login: "/system/login",
@@ -29,6 +31,10 @@ const MainContextProvider = ({ children }) => {
     } catch (error) {
       setError("Error resetting password");
     }
+  };
+
+  const fetchUpdatePass = async (password, token) => {
+    return await axiosInstance.post(path.update_pass, { password, token });
   };
 
   const handleScrollToTop = () => {
@@ -74,7 +80,9 @@ const MainContextProvider = ({ children }) => {
     openModalLogin, 
     setOpenModalLogin,
     login,
-    fetchRequestReset
+    fetchRequestReset,
+    fetchUpdatePass,
+    openRedirectModal, setOpenRedirectModal
   };
 
   return (

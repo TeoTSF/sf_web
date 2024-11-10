@@ -22,7 +22,7 @@ const YellowBtn = ({btnAction, scroll, link, children}) => {
         } else if (scroll != null) {
             handleCustomScroll(scroll);
         } else {
-            btnAction
+            btnAction()
         }
     };
     return (

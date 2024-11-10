@@ -16,19 +16,17 @@ function LoginPage() {
   const handleLogin = async (event) => {
     event.preventDefault();
     try {
-      const response = await login(formData);
-      if (response.status === 200) {
-        localStorage.setItem("token", response.data.token);
+      const {status, data} = await login(formData);
+      if (status === 200) {
+        localStorage.setItem("token", data.token);
         localStorage.setItem(
           "user",
           JSON.stringify(
-            response.data.user.firstname + " " + response.data.user.lastname
+            data.user.name + " " + data.user.lastname
           )
         );
-        localStorage.setItem("roleId", response.data.user.roleId);
+        localStorage.setItem("roleId", data.user.roleId);
         setOpenModalLogin(false);
-        navigate("/dashboard");
-        window.location.reload();
       }
     } catch (error) {
       alert(error);
@@ -71,7 +69,6 @@ function LoginPage() {
           setState={setState}
         />
         <button
-          addClass={"secondary round"}
           onClick={state == 0 ? handleLogin : requestReset}
         >
           {state == 0 ? "Ingresar" : "Enviar"}
