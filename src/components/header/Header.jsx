@@ -14,7 +14,7 @@ const Header = () => {
                 <div className='header_second_section flex column'>
                     <img className='logo_header autoM' src={logoV} alt="logo trading sin fronteras" />
                     <h1 className='center'>Aprende Trading desde cero a nivel avanzado con una 
-                        <span>estrategia rentable</span>!!
+                        <span>{" "}estrategia rentable</span>!!
                     </h1>
                     <div className='flex row wrap jf-c autoM'>
                         <YellowBtn scroll={700}>Tomar curso!</YellowBtn>

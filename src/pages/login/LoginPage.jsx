@@ -4,12 +4,12 @@ import Swal from "sweetalert2";
 import Curtain from "../../components/generals/Curtain";
 import Login from "./Login";
 import MainContext from "../../context/MainContext";
-
+const initialValues = { email: "", password: "" }
 function LoginPage() {
-  const { setOpenModalLogin, openModalLogin, login, fetchRequestReset } =
+  const { setOpenModalLogin, openModalLogin, login, fetchRequestReset, setOpenRedirectModal } =
     useContext(MainContext);
 
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState(initialValues);
   const [state, setState] = useState(0);
   const navigate = useNavigate();
 
@@ -26,7 +26,9 @@ function LoginPage() {
           )
         );
         localStorage.setItem("roleId", data.user.roleId);
+        setFormData(initialValues)
         setOpenModalLogin(false);
+        setOpenRedirectModal(true)
       }
     } catch (error) {
       alert(error);

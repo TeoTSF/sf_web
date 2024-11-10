@@ -71,23 +71,45 @@
 .redirect_modal_info{
     border: 2px solid var(--primaryHC);
     border-radius: 20px;
-    height: 70vh;
     width: 90%;
     max-width: var(--maxW);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
     overflow: hidden;
 }
 
 .redirect_section{
     width: 100%;
     max-width: calc((var(--maxW)/2) - 2px);
+    padding: 1rem;
+}
+
+.redirect1{
+    background-color: rgba(0, 0, 0, 0.822);
+}
+
+.redirect1 img{
+    width: 60%;
+    max-width: 220px;
 }
 
 .redirect2{
-    background: url("/public/bg_tre3M.png") var(--secondaryCC);
+    background: url("/public/bg_tre3M.png") var(--primaryCC);
     background-repeat: no-repeat;
     background-size: cover;
+    color: var(--secondaryCC);
+}
+
+.redirect2 p{
+    filter: drop-shadow(0 0 4px var(--secondaryCC));
+    font-style: italic;
+    color: var(--secondaryTC);
+    font-weight: 400;
+}
+
+.redirect2 h2{
+    font-size: 40px;
+    font-style: italic;
+    margin: 2rem 0;
+    color: var(--secondaryCC);
 }
 
 
@@ -102,5 +124,13 @@
     
     .headBand_info{
         justify-content: space-between;
+    }
+
+    .redirect_modal_info{
+        height: 70vh;
+    }
+
+    .redirect2{
+        padding: 2rem;
     }
 }
