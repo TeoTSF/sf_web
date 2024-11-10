@@ -42,12 +42,12 @@ const Services = () => {
           <img src={logoV} alt="logo trading sin fronteras" />
         </div>
         <div className="services_section2 flex row wrap jf-c al-c">
-          <h3>Entrenamiento y Acompañamiento</h3>
+          <h3 className="regular_w">Entrenamiento y Acompañamiento</h3>
           {services.map((service, index) => (
               <div key={index} className={`services_item${index + 1} flex column al-c`}>
                 <img src={service.imgSrc} alt={service.altText} />
                 <p className="x-big bold">{service.title}</p>
-                <span className="regular bold">{service.description}</span>
+                <span className="big regular_w">{service.description}</span>
               </div>
             ))}
         </div>

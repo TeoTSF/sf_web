@@ -8,18 +8,22 @@ import MainContext from "../../context/MainContext";
 import MenuItem from "../generals/MenuItem";
 
 const NavBar = () => {
-  const { icons, menuOptions, setOpenModalLogin, openModalLogin } = useContext(MainContext);
-
+  const { icons, menuOptions, setOpenModalLogin, openModalLogin } =
+    useContext(MainContext);
+  const token = localStorage.getItem("token")
+  
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className="navbar_container full-vw flex row">
       <div className="navbar_logo_container full-h flex">
-        <img src={logoH} alt="" />
+        <img src={logoH} alt="logo tradinf sin fronteras" />
       </div>
       <div className="navbar_menu_container al-c">
         <Menu />
-        <PrimaryBtn>ESCUELA VIRTUAL</PrimaryBtn>
+        <div className={token && "virtual_scholl_btn"}>
+          <PrimaryBtn>ESCUELA VIRTUAL</PrimaryBtn>
+        </div>
       </div>
       <div className="navbar_icon_container flex row jf-sb al-c">
         {icons.map((item, i) => (
@@ -32,12 +36,18 @@ const NavBar = () => {
             {item.icon}
           </a>
         ))}
-        <i className=' bx bx-user flex jf-c al-c btn_app' onClick={() => setOpenModalLogin(!openModalLogin)} />
+        <i
+          className={`bx bx-user flex jf-c al-c btn_app ${token && "user_loged"}`}
+          onClick={() => setOpenModalLogin(!openModalLogin)}
+        />
       </div>
       <div className="menu_access" onClick={() => setMenuOpen(!menuOpen)}>
         <i className="bx bx-menu" />
       </div>
-      <div className={`flex column mobile_menu al-c ${menuOpen ? "open" : ""}`} onClick={() => setMenuOpen(!menuOpen)}>
+      <div
+        className={`flex column mobile_menu al-c ${menuOpen ? "open" : ""}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
         <img
           className="logo_header autoM"
           src={logoV}
@@ -47,9 +57,9 @@ const NavBar = () => {
           {menuOptions.map((item, i) => (
             <MenuItem item={item} key={i} />
           ))}
-          
         </div>
-        <br /><br />
+        <br />
+        <br />
         <PrimaryBtn>ESCUELA VIRTUAL</PrimaryBtn>
       </div>
     </div>
