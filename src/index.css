@@ -185,7 +185,9 @@ li{
   left: 0;
   z-index: 101;
   opacity: 1;
-  background-color: rgba(168, 166, 166, 0.5);
+  backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  background-color: rgba(15, 15, 15, 0.5);
   transition: all 0.3s ease-in-out;
 }
 

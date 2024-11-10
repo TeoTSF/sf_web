@@ -4,31 +4,31 @@ import Swal from "sweetalert2";
 import Curtain from "../../components/generals/Curtain";
 import Login from "./Login";
 import MainContext from "../../context/MainContext";
-
+const initialValues = { email: "", password: "" }
 function LoginPage() {
-  const { setOpenModalLogin, openModalLogin, login, fetchRequestReset } =
+  const { setOpenModalLogin, openModalLogin, login, fetchRequestReset, setOpenRedirectModal } =
     useContext(MainContext);
 
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState(initialValues);
   const [state, setState] = useState(0);
   const navigate = useNavigate();
 
   const handleLogin = async (event) => {
     event.preventDefault();
     try {
-      const response = await login(formData);
-      if (response.status === 200) {
-        localStorage.setItem("token", response.data.token);
+      const {status, data} = await login(formData);
+      if (status === 200) {
+        localStorage.setItem("token", data.token);
         localStorage.setItem(
           "user",
           JSON.stringify(
-            response.data.user.firstname + " " + response.data.user.lastname
+            data.user.name + " " + data.user.lastname
           )
         );
-        localStorage.setItem("roleId", response.data.user.roleId);
+        localStorage.setItem("roleId", data.user.roleId);
+        setFormData(initialValues)
         setOpenModalLogin(false);
-        navigate("/dashboard");
-        window.location.reload();
+        setOpenRedirectModal(true)
       }
     } catch (error) {
       alert(error);
@@ -71,7 +71,6 @@ function LoginPage() {
           setState={setState}
         />
         <button
-          addClass={"secondary round"}
           onClick={state == 0 ? handleLogin : requestReset}
         >
           {state == 0 ? "Ingresar" : "Enviar"}
