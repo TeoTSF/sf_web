@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Curtain from "../../components/generals/Curtain";
@@ -6,7 +6,9 @@ import Login from "./Login";
 import MainContext from "../../context/MainContext";
 
 function LoginPage() {
-  const { setOpenModalLogin, openModalLogin, login, fetchRequestReset } = useContext(MainContext);
+  const { setOpenModalLogin, openModalLogin, login, fetchRequestReset } =
+    useContext(MainContext);
+
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [state, setState] = useState(0);
   const navigate = useNavigate();
@@ -19,7 +21,9 @@ function LoginPage() {
         localStorage.setItem("token", response.data.token);
         localStorage.setItem(
           "user",
-          JSON.stringify(response.data.user.firstname + " " + response.data.user.lastname)
+          JSON.stringify(
+            response.data.user.firstname + " " + response.data.user.lastname
+          )
         );
         localStorage.setItem("roleId", response.data.user.roleId);
         setOpenModalLogin(false);
@@ -27,7 +31,7 @@ function LoginPage() {
         window.location.reload();
       }
     } catch (error) {
-      alert(error)
+      alert(error);
     }
   };
 
@@ -42,19 +46,18 @@ function LoginPage() {
           title: "Se ha enviado un correo con las intrucciones de recuperación",
           icon: "success",
           confirmButtonColor: "#F89C2A",
-          toast: true
+          toast: true,
         }).then(() => {
           navigate("/");
-        })
+        });
       }
     } catch (error) {
-      alert(error)
+      alert(error);
     }
   };
-  console.log(openModalLogin);
-  
+
   return (
-    <Curtain open={!openModalLogin}>
+    <Curtain open={openModalLogin}>
       <div className="login_container">
         <i
           className="bx bx-x bx-sm btn_app"

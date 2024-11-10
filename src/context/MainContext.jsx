@@ -4,21 +4,15 @@ const MainContext = createContext();
 
 const MainContextProvider = ({ children }) => {
   const [openModalLogin, setOpenModalLogin] = useState(false);
+  const [error, setError] = useState("")
 
   const path = {
     login: "/system/login",
     reset: "/system/reset_password",
     update_pass: "/system/update_password",
     validate_sesion: "/system/me",
-    // all_users: "/users",
-    // locations: "/location",
-    // all_CH: "/clinic-history",
-    // patient: "/patient",
-    // attention: "/attention",
-    // measurement: "/measurement",
-    // prescription: "/prescription",
-    // sponsorship: "",
   };
+
 
   const login = async (data) => {
     try {
