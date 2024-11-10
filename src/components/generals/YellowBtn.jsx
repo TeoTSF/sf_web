@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MainContext from '../../context/MainContext';
 
-const PrimaryBtn = ({btnAction, scroll, link, children}) => {
+const YellowBtn = ({btnAction, scroll, link, children}) => {
     const {handleCustomScroll} = useContext(MainContext)
     const navigate = useNavigate()
 
@@ -25,12 +25,11 @@ const PrimaryBtn = ({btnAction, scroll, link, children}) => {
             btnAction
         }
     };
-
     return (
-        <button className='primary_btn big btn_app flex al-c jf-c s_family' onClick={handleOnClick}>
+        <button className='yellow_btn big bold btn_app flex al-c jf-c s_family' onClick={handleOnClick}>
             {children}
         </button>
     );
 };
 
-export default PrimaryBtn;
+export default YellowBtn;

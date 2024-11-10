@@ -7,6 +7,10 @@
   padding: 1rem 0;
 }
 
+.text_proposal span{
+    color: var(--primaryTC);
+}
+
 .proposal_info{
     max-width: var(--maxW);
     flex-direction: column-reverse;
@@ -37,6 +41,7 @@
 
 .proposal_description1 span{
     font-size: 40px;
+    font-weight: bold;
 }
 
 .proposal_description1 h2{
@@ -56,8 +61,8 @@
 }
 
 .proposal_section2 img{
-    max-width: 70%;
-    max-height: 50vh;
+    max-width: 60%;
+    max-height: 40vh;
 }
 
 .proposal_description3 p{

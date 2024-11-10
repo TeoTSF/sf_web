@@ -9,19 +9,19 @@ const ProposalSection = () => {
       <div className="proposal_info flex full-w full-h autoM jf-sb al-c">
         <div className="flex column proposal_section1 full-h">
           <div className="flex al-c proposal_description1">
-            <h2 className="big">
+            <h2 className="text_proposal big regular_w">
               <span>CURSO DE TRADING</span> Aprenda cómo operan los mercados y
               desarrollé una estrategia avanzada y rentable.
             </h2>
           </div>
           <div className="flex proposal_description2">
-            <div className="flex row proposal_price bold">
-              <h3>120$</h3>
+            <div className="flex row proposal_price">
+              <h3 className="bold">120$</h3>
               <p className="big">Único pago por el curso Indice sintético</p>
             </div>
-            <PrimaryBtn>Inscripciones Abiertas</PrimaryBtn>
+            <PrimaryBtn scroll={700}>Inscripciones Abiertas</PrimaryBtn>
           </div>
-          <div className="flex column wrap proposal_description3 full-w bold regular">
+          <div className="flex column wrap proposal_description3 full-w regular">
             <p className="x-big bold">Suscripción Incluye:</p>
             <div className="flex row wrap jf-sb big">
               <div className="flex column subcription_section1">

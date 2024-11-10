@@ -15,7 +15,7 @@ const FooterSection = () => {
           <div className="services_section1 flex jf-c al-c full_w autoM">
             <img src={logoV} alt="logo trading sin fronteras" />
           </div>
-          <div className="footer_second_section flex column">
+          <div className="footer_second_section flex column  s_family">
             <div className="footer_menu_items">
               {menuOptions.map((item, i) => (
                 <MenuItem item={item} key={i} />
@@ -26,7 +26,7 @@ const FooterSection = () => {
             </div>
           </div>
           <div className="footer_link">
-            <div className="navbar_icon_container flex row jf-sb autoM">
+            <div className="navbar_icon_container flex row jf-sb autoM ">
               {icons.slice(0, 3).map((item, i) => (
                 <a
                   key={i}

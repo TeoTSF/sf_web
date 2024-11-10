@@ -7,7 +7,7 @@ const Menu = () => {
 
 
   return (
-      <div className="navbar_menu_internal_container full-h flex row al-c">
+      <div className="navbar_menu_internal_container full-h flex row al-c s_family">
         <div className="navbar_menu_links flex row">
           {menuOptions.map((item, i) => (
             <MenuItem item={item} key={i} />

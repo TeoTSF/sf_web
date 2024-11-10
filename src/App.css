@@ -10,14 +10,21 @@
     background-position: -200% 50%;
     transition: all .2s ease-in-out;
     height: 2.4rem;
-    display: flex;
-    justify-content: center;
 }
 
 .primary_btn:hover{
     background-position: 300% 50%;
     box-shadow: 0px 0px 5px var(--primaryC);
     transform: scale(1.05);
+}
+
+.yellow_btn{
+    height: 2.4rem;
+    border-radius: 20px;
+    padding: .4rem .8rem;
+    border: none;
+    background-color: var(--primaryHC);
+    color: var(--primaryCC);
 }
 
 .home_container{
@@ -29,11 +36,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 100% 50%;
-    height: 9.45rem;
+    height: 12rem;
 }
 
 .headBand_info{
-    padding: 0 2rem;
+    padding: 1rem 2rem;
     color: var(--primaryC);
     justify-content: center;
 }
@@ -57,6 +64,10 @@
         padding-top: 6rem;
     }
 
+    .headBand_container{
+        height: 9.45rem;
+    }
+    
     .headBand_info{
         justify-content: space-between;
     }
