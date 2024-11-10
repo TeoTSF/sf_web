@@ -29,7 +29,7 @@ const FilterComponent = () => {
           `https://api.example.com/data?filter=${selectedFilter}`
         );
         const data = await response.json();
-        console.log("Datos filtrados:", data);
+        
       };
       fetchData();
     }
