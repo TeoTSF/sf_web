@@ -16,16 +16,18 @@ const Login = ({ formData, setFormData, state, setState }) => {
         value={formData.email}
         onChange={handleChange}
         InputProps={{
-          endAdornment: <InputAdornment position="end">@example.com</InputAdornment>,
+          endAdornment: (
+            <InputAdornment position="end">@example.com</InputAdornment>
+          ),
         }}
         fullWidth
         margin="normal"
       />
 
       {state === 1 && (
-        <p action={() => setState(0)}>
+        <Button onClick={() => setState(0)} variant="text" color="primary">
           Volver al inicio de sesión
-        </p>
+        </Button>
       )}
       <br />
 
@@ -39,7 +41,9 @@ const Login = ({ formData, setFormData, state, setState }) => {
             value={formData.password}
             onChange={handleChange}
             InputProps={{
-              startAdornment: <InputAdornment position="start">***</InputAdornment>,
+              startAdornment: (
+                <InputAdornment position="start">***</InputAdornment>
+              ),
             }}
             fullWidth
             margin="normal"
@@ -55,4 +59,3 @@ const Login = ({ formData, setFormData, state, setState }) => {
 };
 
 export default Login;
-

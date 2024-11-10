@@ -92,7 +92,7 @@
 }
 
 .redirect2{
-    background: url("/public/bg_tre3M.png") var(--primaryCC);
+    background: url("/bg_tre3M.png") var(--primaryCC);
     background-repeat: no-repeat;
     background-size: cover;
     color: var(--secondaryCC);
