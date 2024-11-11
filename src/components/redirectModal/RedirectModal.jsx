@@ -16,7 +16,7 @@ const RedirectModal = () => {
 
   const handdleRedirect = () => {
     toggleModal()
-    navigate("/virtual_school")
+    navigate("/virtual_school/my_courses")
   }
   
   return (

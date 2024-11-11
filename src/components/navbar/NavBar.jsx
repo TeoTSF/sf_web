@@ -7,6 +7,7 @@ import PrimaryBtn from "../generals/PrimaryBtn";
 import MainContext from "../../context/MainContext";
 import MenuItem from "../generals/MenuItem";
 import { useNavigate } from "react-router-dom";
+import TokenAnimate from "../generals/TokenAnimate";
 
 const NavBar = () => {
   const { icons, menuOptions, setOpenModalLogin, openModalLogin } =
@@ -31,9 +32,9 @@ const NavBar = () => {
       </div>
       <div className="navbar_menu_container al-c">
         <Menu />
-        <div className={token && "virtual_scholl_btn"}>
+        <TokenAnimate>
           <PrimaryBtn link={"virtual_school/my_courses"}>ESCUELA VIRTUAL</PrimaryBtn>
-        </div>
+        </TokenAnimate>
       </div>
       <div className="navbar_icon_container flex row jf-sb al-c">
         {icons.map((item, i) => (

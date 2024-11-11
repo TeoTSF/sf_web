@@ -1,0 +1,31 @@
+.virtual_school_container{
+  margin-top: 4rem;
+  min-height: calc(100vh - 4rem);
+}
+
+.appBar {
+  left: 0;
+  right: 0;
+  background-color: var(--primaryCC);
+  overflow-x: hidden;
+}
+
+/* Estilos del toolbar */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Estilos para los botones */
+.button {
+  color: white;
+  text-transform: none;
+}
+
+
+@media screen and (min-width: 768px) {
+  .virtual_school_container{
+    margin-top: 6rem;
+    min-height: calc(100vh - 6rem);
+  }
+}
