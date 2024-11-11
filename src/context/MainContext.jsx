@@ -57,6 +57,12 @@ const MainContextProvider = ({ children }) => {
     { path: "/blog", name: "BLOG" },
   ];
 
+  const menuOptionsSchool = [
+    { path: "/", name: "MIS CURSOS" },
+    { path: "/about_us", name: "CONTENIDO GRATUITO" },
+    { path: "/blog", name: "PERFIL" },
+  ];
+
   const icons = [
     {
       icon: <i className=' bx bxl-youtube' />,

@@ -6,13 +6,23 @@ import logoV from "/logo.png";
 import PrimaryBtn from "../generals/PrimaryBtn";
 import MainContext from "../../context/MainContext";
 import MenuItem from "../generals/MenuItem";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
   const { icons, menuOptions, setOpenModalLogin, openModalLogin } =
     useContext(MainContext);
   const token = localStorage.getItem("token")
+  const navigate = useNavigate()
   
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const handdleActionsIconUser = () => {
+    if (token) {
+      navigate("/virtual_school/profile")
+    } else {
+      setOpenModalLogin(true)
+    }
+  }
 
   return (
     <div className="navbar_container full-vw flex row">
@@ -22,7 +32,7 @@ const NavBar = () => {
       <div className="navbar_menu_container al-c">
         <Menu />
         <div className={token && "virtual_scholl_btn"}>
-          <PrimaryBtn>ESCUELA VIRTUAL</PrimaryBtn>
+          <PrimaryBtn link={"virtual_school/my_courses"}>ESCUELA VIRTUAL</PrimaryBtn>
         </div>
       </div>
       <div className="navbar_icon_container flex row jf-sb al-c">
@@ -38,7 +48,7 @@ const NavBar = () => {
         ))}
         <i
           className={`bx bx-user flex jf-c al-c btn_app ${token && "user_loged"}`}
-          onClick={() => setOpenModalLogin(!openModalLogin)}
+          onClick={handdleActionsIconUser}
         />
       </div>
       <div className="menu_access" onClick={() => setMenuOpen(!menuOpen)}>
