@@ -7,6 +7,7 @@ const MainContextProvider = ({ children }) => {
   const [openModalLogin, setOpenModalLogin] = useState(false);
   const [error, setError] = useState("")
   const [openRedirectModal, setOpenRedirectModal] = useState(false)
+  const [userData, setUserData] = useState("")
 
   const path = {
     login: "/system/login",
@@ -57,6 +58,17 @@ const MainContextProvider = ({ children }) => {
     { path: "/blog", name: "BLOG" },
   ];
 
+  const getMyProfile = async() => {
+    await axiosInstance.get(path.validate_sesion)
+      .then(res => setUserData(res.data.user))
+  }
+
+  const menuOptionsSchool = [
+    { path: "/virtual_school/my_courses", name: "MIS CURSOS" },
+    { path: "/virtual_school/free", name: "CONTENIDO GRATUITO" },
+    { path: "/virtual_school/profile", name: "PERFIL" },
+  ];
+
   const icons = [
     {
       icon: <i className=' bx bxl-youtube' />,
@@ -82,7 +94,10 @@ const MainContextProvider = ({ children }) => {
     login,
     fetchRequestReset,
     fetchUpdatePass,
-    openRedirectModal, setOpenRedirectModal
+    openRedirectModal, 
+    setOpenRedirectModal,
+    userData,
+    getMyProfile
   };
 
   return (

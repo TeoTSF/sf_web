@@ -13,7 +13,7 @@ const FooterSection = () => {
       <div className="footer_container">
         <div className="footer_info flex row al-c jf-c full-w autoM flex row wrap">
           <div className="services_section1 flex jf-c al-c full_w autoM">
-            <img  src={logoV} alt="logo trading sin fronteras" />
+            <img src={logoV} alt="logo trading sin fronteras" />
           </div>
           <div className="footer_second_section flex column  s_family">
             <div className="footer_menu_items">

@@ -8,6 +8,7 @@ import Blog from "./pages/blog/Blog";
 import ResetPassword from "./pages/resetPassword/ResetPassword";
 import NotFound from "./pages/404/NotFound";
 import ModalsContainer from "./components/ModalsContainer";
+import VirtualSchool from "./pages/virtual_school/VirtualSchool";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/reset_password/:tokenReset" element={<ResetPassword />} />
         <Route path="*" element={<NotFound />} />
         <Route element={<ProtectedRoutes />}>
+          <Route path="/virtual_school/*" element={<VirtualSchool />} />
         </Route>
       </Routes>
     </HashRouter>
