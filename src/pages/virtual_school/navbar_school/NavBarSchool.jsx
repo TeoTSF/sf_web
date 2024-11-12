@@ -66,6 +66,7 @@ export default function NavBarSchool() {
           onChange={handleTabChange}
           indicatorColor="secondary"
           textColor="inherit"
+          variant='scrollable'
         >
           {/* Pestañas que cambian entre iconos o texto según sea escritorio o móvil */}
           <Tab icon={ <School />} label={isMobile ? '' : 'MIS CURSOS'} />

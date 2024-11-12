@@ -1,8 +1,5 @@
 const getCurrentUser = () => {
-  let token = localStorage.getItem("token");
-  console.log(token);
-  
-  return token
+  return localStorage.getItem("token");
 };
 
 const actionLogout = () => {

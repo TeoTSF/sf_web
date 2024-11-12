@@ -1,6 +1,7 @@
 .virtual_school_container{
   margin-top: 4rem;
   min-height: calc(100vh - 4rem);
+  background-color: var(--secondaryCC);
 }
 
 .appBar {
@@ -8,6 +9,8 @@
   right: 0;
   background-color: var(--primaryCC);
   overflow-x: hidden;
+  color: var(--secondaryCC);
+  margin-bottom: 2rem;
 }
 
 /* Estilos del toolbar */
@@ -22,6 +25,15 @@
   text-transform: none;
 }
 
+.admin_container{
+  border-radius: 5px;
+  color: var(--secondaryTC);
+}
+
+.tabpanel{
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
 
 @media screen and (min-width: 768px) {
   .virtual_school_container{
