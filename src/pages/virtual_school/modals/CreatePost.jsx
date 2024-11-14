@@ -41,10 +41,8 @@ const CreatePost = ({ open, onClose, onSubmit }) => {
   return (
     <Curtain open={open}>
       <div className="modal_container md">
-        <div className="flex row jf-sb">
-          <Typography variant="h5" gutterBottom>
-            Crear Nueva Publicación
-          </Typography>
+        <div className="flex row jf-sb full-w">
+          <p className="x-big full-w bold">Crear Publicación</p>
           <i className="bx bx-x md btn_app" onClick={onClose}/>
         </div>
         <form onSubmit={handleSubmit}>

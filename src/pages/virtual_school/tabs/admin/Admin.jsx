@@ -3,11 +3,12 @@ import VerticalTabs from "../../utils/VerticalTabs";
 import CreatePost from "../../modals/CreatePost";
 import { useContext } from "react";
 import VirtualSchoolContext from "../../../../context/VirtualSchoolContext";
+import FloatingBtn from "../../utils/FloatingBtn";
 
 const Admin = () => {
     const {modal, setModal, module, createPost } = useContext(VirtualSchoolContext)
 
-    const closeModal = () => {
+    const toggleModal = () => {
       setModal(current => !current)
     }
     
@@ -20,11 +21,12 @@ const Admin = () => {
         module == "admin_posts" && (
           <CreatePost 
             open={modal} 
-            onClose={closeModal}
+            onClose={toggleModal}
             onSubmit={createPost}
           />
         )
       }
+      <FloatingBtn openModal={toggleModal} />
     </>
   );
 };

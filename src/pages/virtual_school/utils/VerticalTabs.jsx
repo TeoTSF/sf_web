@@ -2,22 +2,25 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
-import { useMediaQuery } from '@mui/material';
-import TabPanel from './TabPanel';
+import { Fab, useMediaQuery } from '@mui/material';
 import Users from '../tabs/admin/tabpanel/Users';
 import Posts from '../tabs/admin/tabpanel/Post';
+import { useContext } from 'react';
+import VirtualSchoolContext from '../../../context/VirtualSchoolContext';
 
 export default function VerticalTabs() {
   const [value, setValue] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const isMobile = useMediaQuery('(max-width:600px)');
 
+  const {setModal} = useContext(VirtualSchoolContext)
+
   const handleChange = (event, newValue) => {    
     setValue(newValue);
     setDrawerOpen(false);
+    setModal(false)
   };
 
   const toggleDrawer = () => {
@@ -32,15 +35,17 @@ export default function VerticalTabs() {
   }
 
   return (
-    <Box sx={{ position: 'relative', flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 224 }}>
+    <Box sx={{ position: 'relative', flexGrow: 1, bgcolor: 'background.paper', display: 'flex', padding: "2rem 0" }}>
       {isMobile ? (
         <>
-          <IconButton
+        <Fab
+            color="primary"
+            aria-label="add"
             onClick={toggleDrawer}
-            sx={{ position: 'absolute', top: -35, left: 5, zIndex: 1300 }}
+            style={{ position: "fixed", bottom: "16px", left: "16px" }}
           >
             <MenuIcon />
-          </IconButton>
+          </Fab>
           <Drawer
             anchor="bottom"
             open={drawerOpen}

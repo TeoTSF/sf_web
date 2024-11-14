@@ -1,13 +1,13 @@
 .virtual_school_container{
   margin-top: 4rem;
   background-color: var(--secondaryCC);
-  height: fit-content;
+  min-height: calc(100vh - 4rem);
 }
 
 .admin_container{
-  border-radius: 5px;
+  border-radius: 15px;
   color: var(--secondaryTC);
-  height: 200vh;
+  overflow: hidden;
 }
 
 .appBar {
@@ -35,13 +35,11 @@
 .tabpanel{
   overflow-x: scroll;
   scroll-behavior: smooth;
-  padding-top: 2rem;
   max-width: 1000px;
-  height: fit-content;
 }
 
 .modal_container{
-  background-color: white;
+  background-color: rgb(206, 232, 236);
   border-radius: 8px;
   color: var(--secondaryTC);
   padding: 1.5rem;
@@ -50,6 +48,6 @@
 @media screen and (min-width: 768px) {
   .virtual_school_container{
     margin-top: 6rem;
-    height: fit-content;
+    min-height: calc(100vh - 6rem);
   }
 }
