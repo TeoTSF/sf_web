@@ -1,9 +1,9 @@
 // VirtualSchool.jsx
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import MyCourses from "./tabs/MyCourses";
-import FreeCourses from "./tabs/FreeCourses";
-import Profile from "./tabs/Profile";
+import { Routes, Route } from "react-router-dom";
+import MyCourses from "./tabs/my_courses/MyCourses";
+import FreeCourses from "./tabs/free/FreeCourses";
+import Profile from "./tabs/profile/Profile";
 import NavBarSchool from "./navbar_school/NavBarSchool";
 import "./virtualschool.css";
 import Admin from "./tabs/admin/Admin";

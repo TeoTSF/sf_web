@@ -28,11 +28,13 @@
 .admin_container{
   border-radius: 5px;
   color: var(--secondaryTC);
+  min-height: calc(100vh - 10rem);
 }
 
 .tabpanel{
   overflow-x: scroll;
   scroll-behavior: smooth;
+  padding-top: 2rem;
 }
 
 @media screen and (min-width: 768px) {
