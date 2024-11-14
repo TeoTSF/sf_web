@@ -1,7 +1,13 @@
 .virtual_school_container{
   margin-top: 4rem;
-  min-height: calc(100vh - 4rem);
   background-color: var(--secondaryCC);
+  height: fit-content;
+}
+
+.admin_container{
+  border-radius: 5px;
+  color: var(--secondaryTC);
+  height: 200vh;
 }
 
 .appBar {
@@ -25,17 +31,13 @@
   text-transform: none;
 }
 
-.admin_container{
-  border-radius: 5px;
-  color: var(--secondaryTC);
-  min-height: calc(100vh - 10rem);
-}
 
 .tabpanel{
   overflow-x: scroll;
   scroll-behavior: smooth;
   padding-top: 2rem;
   max-width: 1000px;
+  height: fit-content;
 }
 
 .modal_container{
@@ -48,6 +50,6 @@
 @media screen and (min-width: 768px) {
   .virtual_school_container{
     margin-top: 6rem;
-    min-height: calc(100vh - 6rem);
+    height: fit-content;
   }
 }

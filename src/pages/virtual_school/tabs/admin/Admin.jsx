@@ -13,7 +13,7 @@ const Admin = () => {
     
   return (
     <>
-      <div className="admin_container flex column full-w autoM border">
+      <div className="admin_container flex column full-w autoM">
         <VerticalTabs />
       </div>
       {
