@@ -8,13 +8,14 @@ import { useState } from 'react';
 import { useMediaQuery } from '@mui/material';
 import TabPanel from './TabPanel';
 import Users from '../tabs/admin/tabpanel/Users';
+import Posts from '../tabs/admin/tabpanel/Post';
 
 export default function VerticalTabs() {
   const [value, setValue] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const isMobile = useMediaQuery('(max-width:600px)'); // Detecta si está en un dispositivo móvil
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (event, newValue) => {    
     setValue(newValue);
     setDrawerOpen(false); // Cierra el Drawer cuando se selecciona un tab
   };
@@ -73,15 +74,16 @@ export default function VerticalTabs() {
           <Tab label="Blog" {...a11yProps(2)} />
         </Tabs>
       )}
-
-      {/* Renderizado de TabPanel */}
-      <Users value={value} index={0} />
+      {value == 0 && (
+        <Users value={value} index={0} />
+      )}
       <TabPanel value={value} index={1}>
         Cursos
       </TabPanel>
-      <TabPanel value={value} index={2}>
-        Blog
-      </TabPanel>
+      {
+        value == 2 && (
+          <Posts value={value} index={2} />
+      )}
     </Box>
   );
 }
