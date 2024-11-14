@@ -13,11 +13,11 @@ import Posts from '../tabs/admin/tabpanel/Post';
 export default function VerticalTabs() {
   const [value, setValue] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const isMobile = useMediaQuery('(max-width:600px)'); // Detecta si está en un dispositivo móvil
+  const isMobile = useMediaQuery('(max-width:600px)');
 
   const handleChange = (event, newValue) => {    
     setValue(newValue);
-    setDrawerOpen(false); // Cierra el Drawer cuando se selecciona un tab
+    setDrawerOpen(false);
   };
 
   const toggleDrawer = () => {
