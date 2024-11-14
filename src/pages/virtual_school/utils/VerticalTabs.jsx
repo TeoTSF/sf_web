@@ -55,8 +55,8 @@ export default function VerticalTabs() {
               sx={{ borderRight: 1, borderColor: 'divider' }}
             >
               <Tab label="Usuarios" {...a11yProps(0)} />
-              <Tab label="Cursos" {...a11yProps(1)} />
-              <Tab label="Blog" {...a11yProps(2)} />
+              <Tab label="Blog" {...a11yProps(1)} />
+              <Tab label="Cursos" {...a11yProps(2)} />
             </Tabs>
           </Drawer>
         </>
@@ -70,20 +70,20 @@ export default function VerticalTabs() {
           sx={{ borderRight: 1, borderColor: 'divider' }}
         >
           <Tab label="Usuarios" {...a11yProps(0)} />
-          <Tab label="Cursos" {...a11yProps(1)} />
-          <Tab label="Blog" {...a11yProps(2)} />
+          <Tab label="Blog" {...a11yProps(1)} />
+          <Tab label="Cursos" {...a11yProps(2)} />
         </Tabs>
       )}
       {value == 0 && (
         <Users value={value} index={0} />
       )}
-      <TabPanel value={value} index={1}>
-        Cursos
-      </TabPanel>
       {
-        value == 2 && (
-          <Posts value={value} index={2} />
+        value == 1 && (
+          <Posts value={value} index={1} />
       )}
+      {/* <TabPanel value={value} index={2}>
+        Cursos
+      </TabPanel> */}
     </Box>
   );
 }

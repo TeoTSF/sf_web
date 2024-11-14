@@ -1,12 +1,32 @@
-import React from 'react';
-import VerticalTabs from '../../utils/VerticalTabs';
+import React from "react";
+import VerticalTabs from "../../utils/VerticalTabs";
+import CreatePost from "../../modals/CreatePost";
+import { useContext } from "react";
+import VirtualSchoolContext from "../../../../context/VirtualSchoolContext";
 
 const Admin = () => {
-    return (
-        <div className='admin_container flex column full-w autoM border'>
-            <VerticalTabs />
-        </div>
-    );
+    const {modal, setModal, module, createPost } = useContext(VirtualSchoolContext)
+
+    const closeModal = () => {
+      setModal(current => !current)
+    }
+    
+  return (
+    <>
+      <div className="admin_container flex column full-w autoM border">
+        <VerticalTabs />
+      </div>
+      {
+        module == "admin_posts" && (
+          <CreatePost 
+            open={modal} 
+            onClose={closeModal}
+            onSubmit={createPost}
+          />
+        )
+      }
+    </>
+  );
 };
 
 export default Admin;
