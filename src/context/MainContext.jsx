@@ -9,6 +9,7 @@ const MainContextProvider = ({ children }) => {
   const [openRedirectModal, setOpenRedirectModal] = useState(false)
   const [userData, setUserData] = useState("")
 
+
   const path = {
     login: "/system/login",
     reset: "/system/reset_password",
@@ -63,11 +64,9 @@ const MainContextProvider = ({ children }) => {
       .then(res => setUserData(res.data.user))
   }
 
-  const menuOptionsSchool = [
-    { path: "/virtual_school/my_courses", name: "MIS CURSOS" },
-    { path: "/virtual_school/free", name: "CONTENIDO GRATUITO" },
-    { path: "/virtual_school/profile", name: "PERFIL" },
-  ];
+  const getAllPosts = async() => {
+    return await axiosInstance.get("/post")
+  };
 
   const icons = [
     {
@@ -97,7 +96,8 @@ const MainContextProvider = ({ children }) => {
     openRedirectModal, 
     setOpenRedirectModal,
     userData,
-    getMyProfile
+    getMyProfile,
+    getAllPosts,
   };
 
   return (
