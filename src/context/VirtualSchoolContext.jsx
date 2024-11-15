@@ -70,7 +70,28 @@ export const VirtualSchoolProvider = ({ children }) => {
     } finally { 
       getAllPosts()
     }
-  } 
+  }
+
+  const createCourse = async(data) => {
+    try {
+      await axiosInstance.post(path.courses, data)
+      Swal.fire({
+        title: "Curso creado correctamente",
+        icon: "success",
+        confirmButtonColor: "#F89C2A",
+        toast: true,
+      })
+    } catch (error) {
+      Swal.fire({
+        title: "Error al crear un curso",
+        icon: "error",
+        confirmButtonColor: "#F89C2A",
+        toast: true,
+      })
+    } finally { 
+      getAllCourses()
+    }
+  }
 
   const functions = {
     setModule,
@@ -84,7 +105,8 @@ export const VirtualSchoolProvider = ({ children }) => {
     createPost,
     getAllCourses,
     allCourses,
-    loading
+    loading,
+    createCourse
   };
 
   return (

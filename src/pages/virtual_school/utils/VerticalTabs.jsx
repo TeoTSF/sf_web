@@ -10,6 +10,7 @@ import Posts from "../tabs/admin/tabpanel/Post";
 import { useContext } from "react";
 import VirtualSchoolContext from "../../../context/VirtualSchoolContext";
 import Courses from "../tabs/admin/tabpanel/Courses";
+import Videos from "../tabs/admin/tabpanel/Videos";
 
 export default function VerticalTabs() {
   const [value, setValue] = useState(0);
@@ -71,6 +72,7 @@ export default function VerticalTabs() {
               <Tab label="Usuarios" {...a11yProps(0)} />
               <Tab label="Blog" {...a11yProps(1)} />
               <Tab label="Cursos" {...a11yProps(2)} />
+              <Tab label="Videos" {...a11yProps(3)} />
             </Tabs>
           </Drawer>
         </>
@@ -86,11 +88,13 @@ export default function VerticalTabs() {
           <Tab label="Usuarios" {...a11yProps(0)} />
           <Tab label="Blog" {...a11yProps(1)} />
           <Tab label="Cursos" {...a11yProps(2)} />
+          <Tab label="Videos" {...a11yProps(3)} />
         </Tabs>
       )}
       {value == 0 && <Users value={value} index={0} />}
       {value == 1 && <Posts value={value} index={1} />}
       {value == 2 && <Courses value={value} index={2} />}
+      {value == 3 && <Videos value={value} index={3} />}
     </Box>
   );
 }

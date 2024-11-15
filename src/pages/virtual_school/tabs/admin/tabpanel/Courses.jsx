@@ -29,7 +29,6 @@ const Courses = ({ value, index }) => {
   const handleDelete = (postId) => {
     console.log(`Eliminando post con ID: ${postId}`);
   };
-  console.log(allCourses);
   
   return (
     <TabPanel value={value} index={index}>
@@ -42,6 +41,7 @@ const Courses = ({ value, index }) => {
               <TableCell>Descripción</TableCell>
               <TableCell>Capitulos</TableCell>
               <TableCell>Duración Total</TableCell>
+              <TableCell>Poster</TableCell>
               <TableCell>Precio</TableCell>
               <TableCell>Descuento</TableCell>
               <TableCell>Acciones</TableCell>
@@ -56,6 +56,13 @@ const Courses = ({ value, index }) => {
                   <TableCell>{course.description}</TableCell>
                   <TableCell>{course.videoCount}</TableCell>
                   <TableCell>{course.totalDuration}</TableCell>
+                  <TableCell>
+                    <img
+                      src={course.imageUrl}
+                      alt={course.title}
+                      style={{ width: "80px", height: "auto" }}
+                    />
+                  </TableCell>
                   <TableCell>{course.price}</TableCell>
                   <TableCell>{course.discount}</TableCell>
                   <TableCell>
