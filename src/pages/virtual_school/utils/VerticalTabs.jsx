@@ -1,26 +1,28 @@
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import MenuIcon from '@mui/icons-material/Menu';
-import { useState } from 'react';
-import { Fab, useMediaQuery } from '@mui/material';
-import Users from '../tabs/admin/tabpanel/Users';
-import Posts from '../tabs/admin/tabpanel/Post';
-import { useContext } from 'react';
-import VirtualSchoolContext from '../../../context/VirtualSchoolContext';
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import MenuIcon from "@mui/icons-material/Menu";
+import { useState } from "react";
+import { Fab, useMediaQuery } from "@mui/material";
+import Users from "../tabs/admin/tabpanel/Users";
+import Posts from "../tabs/admin/tabpanel/Post";
+import { useContext } from "react";
+import VirtualSchoolContext from "../../../context/VirtualSchoolContext";
+import Courses from "../tabs/admin/tabpanel/Courses";
+import Videos from "../tabs/admin/tabpanel/Videos";
 
 export default function VerticalTabs() {
   const [value, setValue] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const isMobile = useMediaQuery('(max-width:600px)');
+  const isMobile = useMediaQuery("(max-width:600px)");
 
-  const {setModal} = useContext(VirtualSchoolContext)
+  const { setModal } = useContext(VirtualSchoolContext);
 
-  const handleChange = (event, newValue) => {    
+  const handleChange = (event, newValue) => {
     setValue(newValue);
     setDrawerOpen(false);
-    setModal(false)
+    setModal(false);
   };
 
   const toggleDrawer = () => {
@@ -30,15 +32,23 @@ export default function VerticalTabs() {
   function a11yProps(index) {
     return {
       id: `vertical-tab-${index}`,
-      'aria-controls': `vertical-tabpanel-${index}`,
+      "aria-controls": `vertical-tabpanel-${index}`,
     };
   }
 
   return (
-    <Box sx={{ position: 'relative', flexGrow: 1, bgcolor: 'background.paper', display: 'flex', padding: "2rem 0" }}>
+    <Box
+      sx={{
+        position: "relative",
+        flexGrow: 1,
+        bgcolor: "background.paper",
+        display: "flex",
+        padding: "2rem 0",
+      }}
+    >
       {isMobile ? (
         <>
-        <Fab
+          <Fab
             color="primary"
             aria-label="add"
             onClick={toggleDrawer}
@@ -57,11 +67,12 @@ export default function VerticalTabs() {
               value={value}
               onChange={handleChange}
               aria-label="Vertical tabs"
-              sx={{ borderRight: 1, borderColor: 'divider' }}
+              sx={{ borderRight: 1, borderColor: "divider" }}
             >
               <Tab label="Usuarios" {...a11yProps(0)} />
               <Tab label="Blog" {...a11yProps(1)} />
               <Tab label="Cursos" {...a11yProps(2)} />
+              <Tab label="Videos" {...a11yProps(3)} />
             </Tabs>
           </Drawer>
         </>
@@ -72,24 +83,18 @@ export default function VerticalTabs() {
           value={value}
           onChange={handleChange}
           aria-label="Vertical tabs"
-          sx={{ borderRight: 1, borderColor: 'divider' }}
+          sx={{ borderRight: 1, borderColor: "divider" }}
         >
           <Tab label="Usuarios" {...a11yProps(0)} />
           <Tab label="Blog" {...a11yProps(1)} />
           <Tab label="Cursos" {...a11yProps(2)} />
+          <Tab label="Videos" {...a11yProps(3)} />
         </Tabs>
       )}
-      {value == 0 && (
-        <Users value={value} index={0} />
-      )}
-      {
-        value == 1 && (
-          <Posts value={value} index={1} />
-      )}
-      {/* <TabPanel value={value} index={2}>
-        Cursos
-      </TabPanel> */}
+      {value == 0 && <Users value={value} index={0} />}
+      {value == 1 && <Posts value={value} index={1} />}
+      {value == 2 && <Courses value={value} index={2} />}
+      {value == 3 && <Videos value={value} index={3} />}
     </Box>
   );
 }
-

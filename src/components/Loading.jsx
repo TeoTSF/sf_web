@@ -3,6 +3,7 @@ import { CircularProgress, Box, Typography } from "@mui/material";
 import Curtain from "./generals/Curtain";
 
 export default function Loading({ loading, message = "Cargando..." }) {
+  
   return (
     <Curtain open={loading}>
       <CircularProgress color="primary" /><br /><br />
