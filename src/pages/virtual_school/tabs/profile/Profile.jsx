@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { Card, CardContent, Typography, Grid } from '@mui/material';
-import MainContext from '../../../context/MainContext';
+import MainContext from '../../../../context/MainContext';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Loading from '../../../components/Loading';
+import Loading from '../../../../components/Loading';
 
 export default function Profile() {
   const { userData, getMyProfile } = useContext(MainContext);
