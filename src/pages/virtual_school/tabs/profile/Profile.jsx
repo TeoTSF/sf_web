@@ -21,7 +21,7 @@ export default function Profile() {
   }
   
   if (!userData) {
-    return <Loading />;
+    return <Loading open={!userData}/>;
   }
 
   return (
