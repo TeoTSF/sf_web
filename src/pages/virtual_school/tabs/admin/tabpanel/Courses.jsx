@@ -15,11 +15,11 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Loading from "../../../../../components/Loading";
 
-const Posts = ({ value, index }) => {
-  const { allPosts, setModule } = useContext(VirtualSchoolContext);
+const Courses = ({ value, index }) => {
+  const { allCourses, setModule } = useContext(VirtualSchoolContext);
   
   useEffect(() => {
-    setModule("admin_posts");
+    setModule("admin_courses");
   }, []);
 
   const handleEdit = (postId) => {
@@ -29,7 +29,8 @@ const Posts = ({ value, index }) => {
   const handleDelete = (postId) => {
     console.log(`Eliminando post con ID: ${postId}`);
   };
-
+  console.log(allCourses);
+  
   return (
     <TabPanel value={value} index={index}>
       <TableContainer component={Paper}>
@@ -39,32 +40,24 @@ const Posts = ({ value, index }) => {
               <TableCell>ID</TableCell>
               <TableCell>Título</TableCell>
               <TableCell>Descripción</TableCell>
-              <TableCell>Imagen</TableCell>
-              <TableCell>Fecha de Creación</TableCell>
-              <TableCell>Autor</TableCell>
-              <TableCell>Tag</TableCell>
+              <TableCell>Capitulos</TableCell>
+              <TableCell>Duración Total</TableCell>
+              <TableCell>Precio</TableCell>
+              <TableCell>Descuento</TableCell>
               <TableCell>Acciones</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {allPosts && allPosts.length > 0 ? (
-              allPosts.map((post) => (
-                <TableRow key={post.id}>
-                  <TableCell>{post.id}</TableCell>
-                  <TableCell>{post.title}</TableCell>
-                  <TableCell>{post.description}</TableCell>
-                  <TableCell>
-                    <img
-                      src={post.imageUrl}
-                      alt={post.title}
-                      style={{ width: "80px", height: "auto" }}
-                    />
-                  </TableCell>
-                  <TableCell>
-                    {new Date(post.createdAt).toLocaleDateString()}
-                  </TableCell>
-                  <TableCell>{`${post.user.name} ${post.user.lastname}`}</TableCell>
-                  <TableCell>{post.tag.tag}</TableCell>
+            {allCourses && allCourses.length > 0 ? (
+              allCourses.map((course, i) => (
+                <TableRow key={i}>
+                  <TableCell>{course.id}</TableCell>
+                  <TableCell>{course.title}</TableCell>
+                  <TableCell>{course.description}</TableCell>
+                  <TableCell>{course.videoCount}</TableCell>
+                  <TableCell>{course.totalDuration}</TableCell>
+                  <TableCell>{course.price}</TableCell>
+                  <TableCell>{course.discount}</TableCell>
                   <TableCell>
                     <IconButton
                       color="primary"
@@ -86,7 +79,7 @@ const Posts = ({ value, index }) => {
             ) : (
               <TableRow>
                 <TableCell colSpan={8} align="center">
-                  No hay publicaciones disponibles.
+                  No hay cursos disponibles.
                 </TableCell>
               </TableRow>
             )}
@@ -97,4 +90,4 @@ const Posts = ({ value, index }) => {
   );
 };
 
-export default Posts;
+export default Courses;

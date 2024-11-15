@@ -4,29 +4,25 @@ import CreatePost from "../../modals/CreatePost";
 import { useContext } from "react";
 import VirtualSchoolContext from "../../../../context/VirtualSchoolContext";
 import FloatingBtn from "../../utils/FloatingBtn";
+import Loading from "../../../../components/Loading";
 
 const Admin = () => {
-    const {modal, setModal, module, createPost } = useContext(VirtualSchoolContext)
+  const { modal, setModal, module, createPost, loading } =
+    useContext(VirtualSchoolContext);
 
-    const toggleModal = () => {
-      setModal(current => !current)
-    }
-    
+  const toggleModal = () => {
+    setModal((current) => !current);
+  };
   return (
     <>
       <div className="admin_container flex column full-w autoM">
         <VerticalTabs />
       </div>
-      {
-        module == "admin_posts" && (
-          <CreatePost 
-            open={modal} 
-            onClose={toggleModal}
-            onSubmit={createPost}
-          />
-        )
-      }
+      <Loading loading={loading} />
       <FloatingBtn openModal={toggleModal} />
+      {module == "admin_posts" && (
+        <CreatePost open={modal} onClose={toggleModal} onSubmit={createPost} />
+      )}
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState } from "react";
 import axiosInstance from "../services/axios";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
@@ -9,10 +9,13 @@ export const VirtualSchoolProvider = ({ children }) => {
   const [module, setModule] = useState("");
   const [allUser, setAllUser] = useState([])
   const [allPosts, setAllPosts] = useState([])
+  const [allCourses, setAllCourses] = useState([])
   const [modal, setModal] = useState(false)
+  const [loading, setLoading] = useState(false)
   const path = {
     users: "/users",
     posts: "/post",
+    courses: "/courses",
   };
 
   useEffect(() => {
@@ -22,16 +25,30 @@ export const VirtualSchoolProvider = ({ children }) => {
     if (module === "admin_posts") {
       getAllPosts()
     }
+    if (module === "admin_courses") {
+      getAllCourses()
+    }
   }, [module])
 
   const getAllUsers = async () => {
+    setLoading(true)
     return await axiosInstance.get(path.users)
     .then(res => setAllUser(res.data))
+    .finally(() => setLoading(false))
   };
   
   const getAllPosts = async () => {
+    setLoading(true)
     return await axiosInstance.get(path.posts)
     .then(res => setAllPosts(res.data))
+    .finally(() => setLoading(false))
+  };
+
+  const getAllCourses = async () => {
+    setLoading(true)
+    return await axiosInstance.get(path.courses)
+    .then(res => setAllCourses(res.data))
+    .finally(() => setLoading(false))
   };
 
   const createPost = async(data) => {
@@ -64,7 +81,10 @@ export const VirtualSchoolProvider = ({ children }) => {
     allPosts,
     modal,
     setModal,
-    createPost
+    createPost,
+    getAllCourses,
+    allCourses,
+    loading
   };
 
   return (

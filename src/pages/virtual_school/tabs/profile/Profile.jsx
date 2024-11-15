@@ -20,8 +20,8 @@ export default function Profile() {
     }
   }
   
-  if (!userData[0]) {
-    return <Loading open={!userData[0]}/>;
+  if (!userData.id) {
+    return <Loading loading={!userData.id}/>;
   }
 
   return (

@@ -1,5 +1,3 @@
-// VirtualSchool.jsx
-import React from "react";
 import { Routes, Route } from "react-router-dom";
 import MyCourses from "./tabs/my_courses/MyCourses";
 import FreeCourses from "./tabs/free/FreeCourses";
@@ -10,6 +8,7 @@ import Admin from "./tabs/admin/Admin";
 import { VirtualSchoolProvider } from "../../context/VirtualSchoolContext";
 
 function VirtualSchool() {
+  
   return (
     <VirtualSchoolProvider>
       <div className="virtual_school_container flex column">

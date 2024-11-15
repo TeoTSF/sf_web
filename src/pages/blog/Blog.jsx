@@ -8,26 +8,26 @@ import MainContext from "../../context/MainContext";
 import Loading from "../../components/Loading";
 
 const Blog = () => {
-    const [allPosts, setAllPosts] = useState([])
-    const {getAllPosts} = useContext(MainContext)
-    const navigate = useNavigate()
-    
-    useEffect(() => {
-        fetchData()
-    }, [])
+  const [allPosts, setAllPosts] = useState([]);
+  const { getAllPosts } = useContext(MainContext);
+  const navigate = useNavigate();
 
-    const fetchData = async() => {
-        try {
-            const {data} = await getAllPosts()
-            setAllPosts(data)
-        } catch (error) {
-            navigate("/")
-        }
-    }
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-    if (!allPosts[0]) {
-      return <Loading loading={!allPosts[0]}/>;
+  const fetchData = async () => {
+    try {
+      const { data } = await getAllPosts();
+      setAllPosts(data);
+    } catch (error) {
+      navigate("/");
     }
+  };
+
+  if (!allPosts[0]) {
+    return <Loading loading={!allPosts[0]} />;
+  }
   return (
     <div className="blog_container">
       <div className="blog_info_container">
@@ -38,10 +38,7 @@ const Blog = () => {
         <FilterComponent />
         <div className="post_cards_container">
           {allPosts.map((post, i) => (
-            <PostCard
-                key={i}
-              {...post}
-            />
+            <PostCard key={i} {...post} />
           ))}
         </div>
       </div>
