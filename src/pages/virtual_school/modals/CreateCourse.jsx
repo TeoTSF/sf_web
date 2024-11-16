@@ -1,12 +1,6 @@
 import React, { useState } from "react";
+import "./modals.css";
 import Curtain from "../../../components/generals/Curtain";
-import {
-  TextField,
-  Button,
-  InputLabel,
-  FormControl,
-  Typography,
-} from "@mui/material";
 
 const CreateCourse = ({ open, onClose, onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -40,72 +34,84 @@ const CreateCourse = ({ open, onClose, onSubmit }) => {
 
   return (
     <Curtain open={open}>
-      <div className="modal_container md">
-        <div className="flex row jf-sb full-w">
-          <Typography variant="h5" className="bold">
-            Crear Producto
-          </Typography>
-          <i className="bx bx-x md btn_app" onClick={onClose} />
+      <div className="modal_container">
+      <div className="flex row jf-sb full-w">
+          <p className="x-big full-w bold">Crear Curso</p>
+          <button className="btn_close" onClick={onClose}>
+            &times;
+          </button>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form_container">
           {/* Título */}
-          <TextField
-            fullWidth
-            margin="normal"
-            label="Título"
-            name="title"
-            value={formData.title}
-            onChange={handleInputChange}
-            required
-          />
+          <div className="form_group">
+            <label htmlFor="title" className="form_label">Título</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              className="form_input"
+              value={formData.title}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
           {/* Descripción */}
-          <TextField
-            fullWidth
-            margin="normal"
-            label="Descripción"
-            name="description"
-            multiline
-            rows={4}
-            value={formData.description}
-            onChange={handleInputChange}
-            required
-          />
+          <div className="form_group">
+            <label htmlFor="description" className="form_label">Descripción</label>
+            <textarea
+              id="description"
+              name="description"
+              className="form_textarea"
+              rows="4"
+              value={formData.description}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
           {/* Imagen */}
-          <FormControl fullWidth margin="normal">
-            <InputLabel htmlFor="file">Imagen</InputLabel>
+          <div className="form_group">
+            <label htmlFor="file" className="form_label">Imagen</label>
             <input
               type="file"
+              id="file"
               name="file"
+              className="form_input"
               onChange={handleInputChange}
               accept="image/*"
               required
             />
-          </FormControl>
+          </div>
           {/* Precio */}
-          <TextField
-            fullWidth
-            margin="normal"
-            label="Precio"
-            name="price"
-            type="number"
-            value={formData.price}
-            onChange={handleInputChange}
-            required
-          />
+          <div className="form_group">
+            <label htmlFor="price" className="form_label">Precio</label>
+            <input
+              type="number"
+              id="price"
+              name="price"
+              className="form_input"
+              value={formData.price}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
           {/* Descuento */}
-          <TextField
-            fullWidth
-            margin="normal"
-            label="Descuento (%)"
-            name="discount"
-            type="number"
-            value={formData.discount}
-            onChange={handleInputChange}
-          />
+          <div className="form_group">
+            <label htmlFor="discount" className="form_label">Descuento (%)</label>
+            <input
+              type="number"
+              id="discount"
+              name="discount"
+              className="form_input"
+              value={formData.discount}
+              onChange={handleInputChange}
+            />
+          </div>
           {/* Botón de Enviar */}
-          <Button type="submit" variant="contained" color="primary" fullWidth>
-            Crear Producto
-          </Button>
+          <div className="form_actions">
+            <button type="submit" className="btn_submit">
+              Crear Curso
+            </button>
+          </div>
         </form>
       </div>
     </Curtain>
@@ -113,3 +119,4 @@ const CreateCourse = ({ open, onClose, onSubmit }) => {
 };
 
 export default CreateCourse;
+

@@ -31,6 +31,10 @@
   text-transform: none;
 }
 
+.MuiTableCell-head{
+  font-weight: bold !important;
+  text-align: center !important;
+}
 
 .tabpanel{
   overflow-x: scroll;

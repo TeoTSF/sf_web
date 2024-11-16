@@ -10,12 +10,14 @@ export const VirtualSchoolProvider = ({ children }) => {
   const [allUser, setAllUser] = useState([])
   const [allPosts, setAllPosts] = useState([])
   const [allCourses, setAllCourses] = useState([])
+  const [allVideos, setAllVideos] = useState([])
   const [modal, setModal] = useState(false)
   const [loading, setLoading] = useState(false)
   const path = {
     users: "/users",
     posts: "/post",
     courses: "/courses",
+    videos: "/videos",
   };
 
   useEffect(() => {
@@ -27,6 +29,9 @@ export const VirtualSchoolProvider = ({ children }) => {
     }
     if (module === "admin_courses") {
       getAllCourses()
+    }
+    if (module === "admin_videos") {
+      getAllVideos()
     }
   }, [module])
 
@@ -44,10 +49,17 @@ export const VirtualSchoolProvider = ({ children }) => {
     .finally(() => setLoading(false))
   };
 
-  const getAllCourses = async () => {
+  const getAllCourses = async (flag) => {
     setLoading(true)
-    return await axiosInstance.get(path.courses)
+    return await axiosInstance.get(`${path.courses}${flag ? "?flag=true" : ""}`)
     .then(res => setAllCourses(res.data))
+    .finally(() => setLoading(false))
+  };
+
+  const getAllVideos = async () => {
+    setLoading(true)
+    return await axiosInstance.get(path.videos)
+    .then(res => setAllVideos(res.data))
     .finally(() => setLoading(false))
   };
 
@@ -93,6 +105,27 @@ export const VirtualSchoolProvider = ({ children }) => {
     }
   }
 
+  const createVideo = async(data) => {
+    try {
+      await axiosInstance.post(path.videos, data)
+      Swal.fire({
+        title: "Video creado correctamente",
+        icon: "success",
+        confirmButtonColor: "#F89C2A",
+        toast: true,
+      })
+    } catch (error) {
+      Swal.fire({
+        title: "Error al crear un Video",
+        icon: "error",
+        confirmButtonColor: "#F89C2A",
+        toast: true,
+      })
+    } finally { 
+      getAllVideos()
+    }
+  }
+
   const functions = {
     setModule,
     module,
@@ -106,7 +139,9 @@ export const VirtualSchoolProvider = ({ children }) => {
     getAllCourses,
     allCourses,
     loading,
-    createCourse
+    createCourse,
+    createVideo,
+    allVideos
   };
 
   return (

@@ -6,9 +6,9 @@ const MainContext = createContext();
 const MainContextProvider = ({ children }) => {
   const [openModalLogin, setOpenModalLogin] = useState(false);
   const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false)
   const [openRedirectModal, setOpenRedirectModal] = useState(false)
   const [userData, setUserData] = useState("")
-
 
   const path = {
     login: "/system/login",
@@ -64,9 +64,10 @@ const MainContextProvider = ({ children }) => {
       .then(res => setUserData(res.data.user))
   }
 
-  const getAllPosts = async() => {
-    return await axiosInstance.get("/post")
+  const getAllPosts = async({tagId}) => {
+    return await axiosInstance.get(`/post${tagId != "" ? "?tagId=" + tagId : ""}`)
   };
+  
 
   const icons = [
     {
@@ -98,6 +99,8 @@ const MainContextProvider = ({ children }) => {
     userData,
     getMyProfile,
     getAllPosts,
+    loading,
+    setLoading
   };
 
   return (
