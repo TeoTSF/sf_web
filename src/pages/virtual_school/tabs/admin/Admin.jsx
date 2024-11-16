@@ -9,12 +9,20 @@ import CreateCourse from "../../modals/CreateCourse";
 import CreateVideo from "../../modals/CreateVideo";
 
 const Admin = () => {
-  const { modal, setModal, module, createPost, loading, createCourse, createVideo } =
-    useContext(VirtualSchoolContext);
+  const {
+    modal,
+    setModal,
+    module,
+    createPost,
+    loading,
+    createCourse,
+    createVideo,
+  } = useContext(VirtualSchoolContext);
 
   const toggleModal = () => {
     setModal((current) => !current);
   };
+  
   return (
     <>
       <div className="admin_container flex column full-w autoM">
@@ -23,13 +31,25 @@ const Admin = () => {
       <Loading loading={loading} />
       <FloatingBtn openModal={toggleModal} />
       {module == "admin_posts" && (
-        <CreatePost open={modal} onClose={toggleModal} onSubmit={createPost} />
+        <CreatePost 
+          open={modal} 
+          onClose={toggleModal} 
+          onSubmit={createPost} 
+          />
       )}
       {module == "admin_courses" && (
-        <CreateCourse open={modal} onClose={toggleModal} onSubmit={createCourse} />
+        <CreateCourse
+          open={modal}
+          onClose={toggleModal}
+          onSubmit={createCourse}
+        />
       )}
       {module == "admin_videos" && (
-        <CreateVideo open={modal} onClose={toggleModal} onSubmit={createVideo} />
+        <CreateVideo
+          open={modal}
+          onClose={toggleModal}
+          onSubmit={createVideo}
+        />
       )}
     </>
   );

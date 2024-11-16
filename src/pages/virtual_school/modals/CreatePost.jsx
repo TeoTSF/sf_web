@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import Curtain from "../../../components/generals/Curtain";
-import {
-  TextField,
-  Button,
-  Select,
-  MenuItem,
-  InputLabel,
-  FormControl,
-  Typography,
-} from "@mui/material";
+import "./modals.css"
 
 const CreatePost = ({ open, onClose, onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -43,59 +35,73 @@ const CreatePost = ({ open, onClose, onSubmit }) => {
       <div className="modal_container md">
         <div className="flex row jf-sb full-w">
           <p className="x-big full-w bold">Crear Publicación</p>
-          <i className="bx bx-x md btn_app" onClick={onClose}/>
+          <button className="btn_close" onClick={onClose}>
+            &times;
+          </button>
         </div>
-        <form onSubmit={handleSubmit}>
-          <FormControl fullWidth margin="normal">
-            <InputLabel htmlFor="file">Imagen</InputLabel>
+        <form onSubmit={handleSubmit} className="form_container">
+          <div className="form_group">
+            <label htmlFor="file">Imagen</label>
             <input
               type="file"
+              id="file"
               name="file"
               onChange={handleInputChange}
               accept="image/*"
               required
             />
-          </FormControl>
-          <TextField
-            fullWidth
-            margin="normal"
-            label="Título"
-            name="title"
-            value={formData.title}
-            onChange={handleInputChange}
-            required
-          />
-          <TextField
-            fullWidth
-            margin="normal"
-            label="Descripción"
-            name="description"
-            multiline
-            rows={4}
-            value={formData.description}
-            onChange={handleInputChange}
-            required
-          />
-          <FormControl fullWidth margin="normal">
-            <InputLabel id="tagId-label">Categoría</InputLabel>
-            <Select
-              labelId="tagId-label"
+          </div>
+
+          <div className="form_group">
+            <label htmlFor="title">Título</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value={formData.title}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+
+          <div className="form_group">
+            <label htmlFor="description">Descripción</label>
+            <textarea
+              id="description"
+              name="description"
+              rows="4"
+              value={formData.description}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+
+          <div className="form_group">
+            <label htmlFor="tagId">Categoría</label>
+            <select
+              id="tagId"
               name="tagId"
               value={formData.tagId}
               onChange={handleInputChange}
               required
             >
-              <MenuItem value={1}>Trading</MenuItem>
-              <MenuItem value={2}>Analisis</MenuItem>
-              <MenuItem value={3}>Resultados</MenuItem>
-              <MenuItem value={4}>Clases</MenuItem>
-              <MenuItem value={5}>Gestión</MenuItem>
-              <MenuItem value={6}>Señales</MenuItem>
-            </Select>
-          </FormControl>
-          <Button type="submit" variant="contained" color="primary" fullWidth>
-            Crear Publicación
-          </Button>
+              <option value="" disabled>
+                Selecciona una categoría
+              </option>
+              <option value={1}>Trading</option>
+              <option value={2}>Analisis</option>
+              <option value={3}>Resultados</option>
+              <option value={4}>Clases</option>
+              <option value={5}>Gestión</option>
+              <option value={6}>Señales</option>
+            </select>
+          </div>
+
+          <div className="form_actions">
+            <button type="submit" className="btn_submit">
+              Crear Publicación
+            </button>
+          </div>
         </form>
       </div>
     </Curtain>
@@ -103,3 +109,4 @@ const CreatePost = ({ open, onClose, onSubmit }) => {
 };
 
 export default CreatePost;
+

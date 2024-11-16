@@ -49,9 +49,9 @@ export const VirtualSchoolProvider = ({ children }) => {
     .finally(() => setLoading(false))
   };
 
-  const getAllCourses = async ({flag}) => {
+  const getAllCourses = async (flag) => {
     setLoading(true)
-    return await axiosInstance.get(`${path.courses}${flag ? "?flag=" + flag : ""}`)
+    return await axiosInstance.get(`${path.courses}${flag ? "?flag=true" : ""}`)
     .then(res => setAllCourses(res.data))
     .finally(() => setLoading(false))
   };
