@@ -7,6 +7,8 @@ import {
   Button,
 } from "@mui/material";
 import FilterListIcon from "@mui/icons-material/FilterList";
+import { useContext } from "react";
+import MainContext from "../../../context/MainContext";
 
 const blogFilters = [
   { id: "", category: "Todos"},
@@ -15,28 +17,15 @@ const blogFilters = [
   { id: 3, category: "Resultados" },
   { id: 4, category: "Clases" },
   { id: 5, category: "Gestión" },
+  { id: 6, category: "Señales" },
 ];
 
-const FilterComponent = () => {
-  const [selectedFilter, setSelectedFilter] = useState(null);
+const FilterComponent = ({setTagId, tagId}) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const isMobile = useMediaQuery("(max-width:600px)");
 
-  useEffect(() => {
-    if (selectedFilter) {
-      const fetchData = async () => {
-        const response = await fetch(
-          `https://api.example.com/data?filter=${selectedFilter}`
-        );
-        const data = await response.json();
-        
-      };
-      fetchData();
-    }
-  }, [selectedFilter]);
-
   const handleFilterSelect = (category) => {
-    setSelectedFilter(category);
+    setTagId(category);
     setAnchorEl(null);
   };
 
@@ -63,9 +52,9 @@ const FilterComponent = () => {
             {blogFilters.map((filter) => (
               <MenuItem
                 key={filter.id}
-                onClick={() => handleFilterSelect(filter.category)}
+                onClick={() => handleFilterSelect(filter.id)}
                 className={`menu-item ${
-                  selectedFilter === filter.category ? "selected" : ""
+                  tagId === filter.id ? "selected" : ""
                 }`}
               >
                 {filter.category}
@@ -78,9 +67,9 @@ const FilterComponent = () => {
           {blogFilters.map((filter) => (
             <Button
               key={filter.id}
-              onClick={() => handleFilterSelect(filter.category)}
+              onClick={() => handleFilterSelect(filter.id)}
               className={`desktop-filter-button ${
-                selectedFilter === filter.category ? "selected" : ""
+                tagId === filter.id ? "selected" : ""
               }`}
             >
               {filter.category}
