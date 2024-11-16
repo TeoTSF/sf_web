@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./modals.css";
+import Curtain from "../../../components/generals/Curtain";
 
 const CreateCourse = ({ open, onClose, onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -32,13 +33,15 @@ const CreateCourse = ({ open, onClose, onSubmit }) => {
   };
 
   return (
-    <div className="modal_overlay">
+    <Curtain open={open}>
       <div className="modal_container">
-        <div className="modal_header">
-          <h2 className="modal_title">Crear Producto</h2>
-          <button className="modal_close_btn" onClick={onClose}>&times;</button>
+      <div className="flex row jf-sb full-w">
+          <p className="x-big full-w bold">Crear Curso</p>
+          <button className="btn_close" onClick={onClose}>
+            &times;
+          </button>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form_container">
           {/* Título */}
           <div className="form_group">
             <label htmlFor="title" className="form_label">Título</label>
@@ -105,11 +108,13 @@ const CreateCourse = ({ open, onClose, onSubmit }) => {
           </div>
           {/* Botón de Enviar */}
           <div className="form_actions">
-            <button type="submit" className="btn_primary">Crear Producto</button>
+            <button type="submit" className="btn_submit">
+              Crear Curso
+            </button>
           </div>
         </form>
       </div>
-    </div>
+    </Curtain>
   );
 };
 

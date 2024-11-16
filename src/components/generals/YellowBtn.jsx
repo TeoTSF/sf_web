@@ -8,8 +8,6 @@ const YellowBtn = ({btnAction, scroll, link, children}) => {
 
     const handleNavigate = () => {
         if (link.startsWith("http")) {
-            console.log("ejecutado");
-            
             window.location.href = link;
         } else {
             navigate(link);

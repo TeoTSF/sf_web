@@ -13,7 +13,6 @@ import {
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Loading from "../../../../../components/Loading";
 
 const Courses = ({ value, index }) => {
   const { allCourses, setModule } = useContext(VirtualSchoolContext);
