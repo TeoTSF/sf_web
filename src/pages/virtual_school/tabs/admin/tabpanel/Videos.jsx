@@ -56,7 +56,7 @@ const Videos = ({ value, index }) => {
                       Ver Video
                     </a>
                   </TableCell>
-                  <TableCell>{video.duration} segundos</TableCell>
+                  <TableCell>{video.duration} min</TableCell>
                   <TableCell>
                     <img
                       src={video.imageUrl}
