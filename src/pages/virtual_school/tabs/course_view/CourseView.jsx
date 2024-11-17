@@ -1,16 +1,17 @@
-// CourseView.js (componente actualizado)
-import React from "react";
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import VirtualSchoolContext from "../../../../context/VirtualSchoolContext";
+import ReactPlayer from "react-player";
 import Loading from "../../../../components/Loading";
 import "./CourseView.css";
 
 const CourseView = () => {
+  const videoPlayerRef = useRef();
   const { courseId } = useParams();
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
   const [currentVideo, setCurrentVideo] = useState(null);
+  const [showImageOverlay, setShowImageOverlay] = useState(true);
   const { getCourseVideo } = useContext(VirtualSchoolContext);
   const navigate = useNavigate();
 
@@ -33,52 +34,102 @@ const CourseView = () => {
 
   const handleVideoChange = (video) => {
     setCurrentVideo(video);
+    setShowImageOverlay(true);
   };
 
-  if (loading) {
-    return <Loading loading={loading} />;
-  }
-
   return (
-    <div className="course-view">
-      <div className="course-header">
-        <h1>{data?.course?.title}</h1>
-        <p>{data?.course?.description}</p>
-      </div>
-      <div className="course-content">
-        <div className="video-container">
-          {currentVideo && (
-            <iframe
-              src={currentVideo.videoUrl}
-              title={currentVideo.title}
-              allowFullScreen
-              frameBorder="0"
-            ></iframe>
-          )}
-        </div>
-        <div className="video-list">
-          <h3>Videos del curso</h3>
-          <ul>
-            {data?.videos.map((video, i) => (
-              <li
-                key={i}
-                className={currentVideo?.id === video.id ? "active" : ""}
-                onClick={() => handleVideoChange(video)}
-              >
-                {video.title}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <div className="course-details">
-          <p><strong>Total de videos:</strong> {data?.course?.videoCount}</p>
-          <p><strong>Duración total:</strong> {data?.course?.totalDuration} minutos</p>
-        </div>
+    <div className="course-view" onContextMenu={(e) => e.preventDefault()}>
+      {loading ? (
+        <Loading loading={loading} />
+      ) : (
+        <>
+          <div className="course-header">
+            <h1>{data?.course?.title}</h1>
+            <p>{data?.course?.description}</p>
+          </div>
+          <div className="course-content">
+            <div className="video-container">
+              {currentVideo && (
+                <div className="video-wrapper">
+                  {showImageOverlay && (
+                    <>
+                      <img
+                        src={currentVideo.imageUrl}
+                        alt={currentVideo.title}
+                        className="video-overlay"
+                      />
+                      <button
+                        className="play-button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setShowImageOverlay(false);
+                        }}
+                      >
+                        ▶ Play
+                      </button>
+                    </>
+                  )}
+                  <div className="video-container">
+                    <ReactPlayer
+                      ref={(player) => (videoPlayerRef.current = player)}
+                      url={currentVideo.videoUrl}
+                      controls={false} // Desactivar controles de YouTube
+                      playing={!showImageOverlay}
+                      onPlay={() => setShowImageOverlay(false)}
+                      onPause={() => setShowImageOverlay(true)}
+                      onEnded={() => setShowImageOverlay(true)}
+                      width="100%"
+                      height="400px"
+                    />
+                    <div
+                      className="overlay-blocker"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                      }}
+                    >
+                      <button
+                        className="pause-button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          videoPlayerRef.current &&
+                            videoPlayerRef.current
+                              .getInternalPlayer()
+                              .pauseVideo();
+                        }}
+                      >
+                        ⏸ Pause
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="video-list">
+              <h3>Videos del curso</h3>
+              <ul>
+                {data?.videos.map((video, i) => (
+                  <li
+                    key={i}
+                    className={
+                      currentVideo?.id === video.id ? "active" : "inactive"
+                    }
+                    onClick={() => handleVideoChange(video)}
+                  >
+                    {video.title}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className="course-details">
+            <p>Duración total: {data?.course?.totalDuration} minutos</p>
+            <p>Número de videos: {data?.course?.videoCount}</p>
+          </div>
+        </>
+      )}
     </div>
   );
 };
 
 export default CourseView;
-
-
