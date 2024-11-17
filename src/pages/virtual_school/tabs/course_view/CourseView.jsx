@@ -73,7 +73,7 @@ const CourseView = () => {
                     <ReactPlayer
                       ref={(player) => (videoPlayerRef.current = player)}
                       url={currentVideo.videoUrl}
-                      controls={false} // Desactivar controles de YouTube
+                      controls
                       playing={!showImageOverlay}
                       onPlay={() => setShowImageOverlay(false)}
                       onPause={() => setShowImageOverlay(true)}
@@ -101,6 +101,11 @@ const CourseView = () => {
                         ⏸ Pause
                       </button>
                     </div>
+                    <div className="overlay-blocker2"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                      }}></div>
                   </div>
                 </div>
               )}
