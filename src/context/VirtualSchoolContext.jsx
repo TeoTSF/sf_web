@@ -11,8 +11,6 @@ export const VirtualSchoolProvider = ({ children }) => {
   const [allPosts, setAllPosts] = useState([])
   const [allCourses, setAllCourses] = useState([])
   const [allVideos, setAllVideos] = useState([])
-  const [allFreeCourses, setAllFreeCourses] = useState([])
-  const [data, setData] = useState()
   const [modal, setModal] = useState(false)
   const [loading, setLoading] = useState(false)
   const path = {
@@ -20,7 +18,6 @@ export const VirtualSchoolProvider = ({ children }) => {
     posts: "/post",
     courses: "/courses",
     videos: "/videos",
-    free: "/courses/free",
   };
 
   useEffect(() => {
@@ -35,9 +32,6 @@ export const VirtualSchoolProvider = ({ children }) => {
     }
     if (module === "admin_videos") {
       getAllVideos()
-    }
-    if (module === "free") {
-      getFreeContain()
     }
   }, [module])
 
@@ -64,8 +58,8 @@ export const VirtualSchoolProvider = ({ children }) => {
 
   const getAllVideos = async () => {
     setLoading(true)
-    await axiosInstance.get(path.videos)
-    .then(res => setAllVideos(res.data.videos))
+    return await axiosInstance.get(path.videos)
+    .then(res => setAllVideos(res.data))
     .finally(() => setLoading(false))
   };
 
@@ -132,17 +126,6 @@ export const VirtualSchoolProvider = ({ children }) => {
     }
   }
 
-  const getFreeContain = async() => {
-    setLoading(true)
-    await axiosInstance.get(path[module])
-    .then(res => setAllFreeCourses(res.data))
-    .finally(() => setLoading(false))
-  }
-
-  const getCourseVideo = async(courseId) => {    
-    return await axiosInstance.get(`${path.videos}${courseId && "?courseId="+courseId}`)
-  }
-
   const functions = {
     setModule,
     module,
@@ -158,10 +141,7 @@ export const VirtualSchoolProvider = ({ children }) => {
     loading,
     createCourse,
     createVideo,
-    allVideos,
-    allFreeCourses,
-    data,
-    getCourseVideo
+    allVideos
   };
 
   return (

@@ -6,7 +6,6 @@ import NavBarSchool from "./navbar_school/NavBarSchool";
 import "./virtualschool.css";
 import Admin from "./tabs/admin/Admin";
 import { VirtualSchoolProvider } from "../../context/VirtualSchoolContext";
-import CourseView from "./tabs/course_view/CourseView";
 
 function VirtualSchool() {
   
@@ -19,7 +18,6 @@ function VirtualSchool() {
           <Route path="free" element={<FreeCourses />} />
           <Route path="profile" element={<Profile />} />
           <Route path="admin" element={<Admin />} />
-          <Route path="course_view/:courseId" element={<CourseView />} />
         </Routes>
       </div>
     </VirtualSchoolProvider>

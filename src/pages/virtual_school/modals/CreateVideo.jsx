@@ -6,7 +6,7 @@ import "./modals.css"
 const CreateVideo = ({ open, onClose, onSubmit }) => {
   const [formData, setFormData] = useState({
     videoUrl: "",
-    duration: 0,
+    duration: "",
     courseId: null,
     file: null,
     title: "",
@@ -107,7 +107,7 @@ const CreateVideo = ({ open, onClose, onSubmit }) => {
           </div>
 
           <div className="form_group">
-            <label htmlFor="duration">Duración (en minutos)</label>
+            <label htmlFor="duration">Duración (en segundos)</label>
             <input
               type="number"
               id="duration"
