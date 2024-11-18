@@ -38,7 +38,7 @@ const CourseView = () => {
   };
 
   return (
-    <div className="course-view" onContextMenu={(e) => e.preventDefault()}>
+    <div className="course-view">
       {loading ? (
         <Loading loading={loading} />
       ) : (
@@ -50,7 +50,7 @@ const CourseView = () => {
           <div className="course-content">
             <div className="video-container">
               {currentVideo && (
-                <div className="video-wrapper">
+                <>
                   {showImageOverlay && (
                     <>
                       <img
@@ -69,7 +69,7 @@ const CourseView = () => {
                       </button>
                     </>
                   )}
-                  <div className="video-container">
+                  <div className="video-wrapper border full-w full-h">
                     <ReactPlayer
                       ref={(player) => (videoPlayerRef.current = player)}
                       url={currentVideo.videoUrl}
@@ -79,7 +79,7 @@ const CourseView = () => {
                       onPause={() => setShowImageOverlay(true)}
                       onEnded={() => setShowImageOverlay(true)}
                       width="100%"
-                      height="400px"
+                      height="100%"
                     />
                     <div
                       className="overlay-blocker"
@@ -88,6 +88,7 @@ const CourseView = () => {
                         e.stopPropagation();
                       }}
                     >
+                      {!showImageOverlay && 
                       <button
                         className="pause-button"
                         onClick={(e) => {
@@ -99,15 +100,17 @@ const CourseView = () => {
                         }}
                       >
                         ⏸ Pause
-                      </button>
+                      </button>}
                     </div>
-                    <div className="overlay-blocker2"
+                    <div
+                      className="overlay-blocker2"
                       onClick={(e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                      }}></div>
+                      }}
+                    ></div>
                   </div>
-                </div>
+                </>
               )}
             </div>
             <div className="video-list">
