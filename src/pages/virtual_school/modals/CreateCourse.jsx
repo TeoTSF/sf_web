@@ -7,8 +7,8 @@ const CreateCourse = ({ open, onClose, onSubmit }) => {
     title: "",
     description: "",
     file: null,
-    price: 0,
-    discount: 0,
+    price: "",
+    discount: "",
   });
 
   const handleInputChange = (e) => {
