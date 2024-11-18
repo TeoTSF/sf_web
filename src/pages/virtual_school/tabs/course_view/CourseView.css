@@ -162,7 +162,7 @@
   font-size: 1.5rem;
   cursor: pointer;
   border-radius: 5px;
-  z-index: 2;
+  z-index: 3;
   transition: background-color 0.3s;
 }
   
